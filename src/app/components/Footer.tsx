@@ -3,7 +3,6 @@ import { Mail, Copy, Check, Phone, Instagram, Facebook } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 import { useLang } from "./LanguageContext";
-import logoImg from "../../imports/540454450_122108095274987112_4613267991255325676_n.jpg";
 
 export function Footer() {
   const { t, lang } = useLang();
@@ -31,7 +30,7 @@ export function Footer() {
           <div className="md:col-span-1">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 rounded-lg overflow-hidden bg-[#1A0E1E] p-0.5 border border-[#E8DFC0]/15">
-                <img src={logoImg} alt="O.A Group" className="w-full h-full rounded-md object-cover" />
+                <img src="/oagroup-logo.png" alt="O.A Group" className="w-full h-full rounded-lg object-contain" />
               </div>
               <span className="text-[#E8DFC0] tracking-[0.15em]" style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 700 }}>O.A GROUP</span>
             </div>

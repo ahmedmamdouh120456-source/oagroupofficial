@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router";
 import { Menu, X, Globe } from "lucide-react";
 import { useLang } from "./LanguageContext";
-import logoImg from "../../imports/540454450_122108095274987112_4613267991255325676_n.jpg";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -37,7 +36,7 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3">
           <div className="w-11 h-11 rounded-xl overflow-hidden bg-[#1A0E1E] p-0.5 border border-[#E8DFC0]/15">
-            <img src={logoImg} alt="O.A Group" className="w-full h-full rounded-lg object-cover" />
+            <img src="/oagroup-logo.png" alt="O.A Group" className="w-full h-full rounded-lg object-contain" />
           </div>
           <div>
             <span className="text-[#E8DFC0] tracking-[0.15em] block" style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 700, fontSize: "1.05rem" }}>O.A GROUP</span>
