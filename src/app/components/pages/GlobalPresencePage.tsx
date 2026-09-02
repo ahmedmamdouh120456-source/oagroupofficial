@@ -39,8 +39,7 @@ export function GlobalPresencePage() {
           className="absolute -top-40 end-[-10%] w-[520px] h-[520px] border border-[#6B4C8A]/10 rounded-full hidden md:block" />
         <motion.div animate={{ rotate: -360 }} transition={{ duration: 70, repeat: Infinity, ease: "linear" }}
           className="absolute -top-24 end-[2%] w-[360px] h-[360px] border border-[#E8DFC0]/[0.06] rounded-full hidden md:block" />
-        <motion.div animate={{ scale: [1, 1.2, 1], opacity: [0.05, 0.1, 0.05] }} transition={{ duration: 9, repeat: Infinity }}
-          className="absolute top-1/3 start-1/4 w-[500px] h-[500px] bg-[#6B4C8A] rounded-full blur-[170px]" />
+        <div className="absolute top-1/3 start-1/4 w-[500px] h-[500px] bg-[#6B4C8A] opacity-[0.07] rounded-full blur-[170px]" />
 
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
           <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }}
@@ -168,11 +167,9 @@ export function GlobalPresencePage() {
 
       {/* ═══ FXSTUDIO ═══ */}
       <section className="py-16 md:py-28 relative overflow-hidden" style={{ background: "#0D0710" }}>
-        {/* Cinematic light sweeps */}
-        <motion.div animate={{ opacity: [0.03, 0.08, 0.03], x: [0, 40, 0] }} transition={{ duration: 12, repeat: Infinity }}
-          className="absolute top-0 start-1/3 w-[2px] h-full bg-gradient-to-b from-transparent via-[#A87FC4] to-transparent blur-sm" />
-        <motion.div animate={{ opacity: [0.02, 0.06, 0.02], x: [0, -30, 0] }} transition={{ duration: 15, repeat: Infinity, delay: 3 }}
-          className="absolute top-0 end-1/4 w-[2px] h-full bg-gradient-to-b from-transparent via-[#E8DFC0] to-transparent blur-sm" />
+        {/* Static light lines */}
+        <div className="absolute top-0 start-1/3 w-[2px] h-full bg-gradient-to-b from-transparent via-[#A87FC4]/[0.05] to-transparent" />
+        <div className="absolute top-0 end-1/4 w-[2px] h-full bg-gradient-to-b from-transparent via-[#E8DFC0]/[0.04] to-transparent" />
         <div className="absolute bottom-0 start-0 w-[600px] h-[400px] bg-[#6B4C8A] opacity-[0.06] blur-[180px] rounded-full" />
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
@@ -292,8 +289,7 @@ export function GlobalPresencePage() {
 
       {/* ═══ FINAL CTA ═══ */}
       <section className="py-20 md:py-32 relative overflow-hidden" style={{ background: "radial-gradient(ellipse at 50% 50%, #2D1B30 0%, #1A0E1E 60%, #120A14 100%)" }}>
-        <motion.div animate={{ scale: [1, 1.15, 1], opacity: [0.05, 0.1, 0.05] }} transition={{ duration: 10, repeat: Infinity }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#6B4C8A] rounded-full blur-[180px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#6B4C8A] opacity-[0.07] rounded-full blur-[180px]" />
         <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
           <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             className="mb-6" style={{ fontFamily: font, fontWeight: 900, fontSize: "clamp(2rem, 5vw, 3.4rem)", lineHeight: 1.1 }}>

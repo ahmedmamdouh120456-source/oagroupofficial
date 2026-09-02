@@ -1,22 +1,3 @@
 @import './fonts.css';
 @import './tailwind.css';
 @import './theme.css';
-/* Mobile Performance Optimization */
-@media (max-width: 1024px) {
-  [class*="blur-[180px]"] {
-    filter: blur(72px) !important;
-  }
-
-  [class*="blur-[150px]"] {
-    filter: blur(60px) !important;
-  }
-
-  [class*="blur-[100px]"] {
-    filter: blur(40px) !important;
-  }
-
-  [class*="backdrop-blur"] {
-    -webkit-backdrop-filter: blur(6px) !important;
-    backdrop-filter: blur(6px) !important;
-  }
-}

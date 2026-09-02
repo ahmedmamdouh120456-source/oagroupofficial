@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router";
 import { Menu, X, Globe } from "lucide-react";
 import { useLang } from "./LanguageContext";
+import logoImg from "../../imports/540454450_122108095274987112_4613267991255325676_n.jpg";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -32,11 +33,11 @@ export function Navbar() {
   const isActive = (to: string) => location.pathname === to;
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "bg-[#1A0E1E]/90 backdrop-blur-xl border-b border-[#D4C9A8]/10" : "bg-transparent"}`}>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "bg-[#1A0E1E]/95 border-b border-[#D4C9A8]/10" : "bg-transparent"}`}>
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3">
           <div className="w-11 h-11 rounded-xl overflow-hidden bg-[#1A0E1E] p-0.5 border border-[#E8DFC0]/15">
-            <img src="/oagroup-logo.png" alt="O.A Group" className="w-full h-full rounded-lg object-contain" />
+            <img src={logoImg} alt="O.A Group" className="w-full h-full rounded-lg object-cover" />
           </div>
           <div>
             <span className="text-[#E8DFC0] tracking-[0.15em] block" style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 700, fontSize: "1.05rem" }}>O.A GROUP</span>
@@ -78,7 +79,7 @@ export function Navbar() {
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="lg:hidden bg-[#1A0E1E]/95 backdrop-blur-xl border-t border-[#E8DFC0]/10 px-6 py-6 space-y-4">
+        <div className="lg:hidden bg-[#1A0E1E] border-t border-[#E8DFC0]/10 px-6 py-6 space-y-4">
           {links.map((l) => (
             <Link key={l.to} to={l.to}
               className={`block text-sm py-2 ${isActive(l.to) ? "text-[#E8DFC0]" : "text-[#E8DFC0]/50"}`}

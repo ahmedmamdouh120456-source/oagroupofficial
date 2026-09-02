@@ -42,8 +42,7 @@ export function AboutPage() {
       <section className="relative py-16 md:py-28 overflow-hidden" style={{ background: "radial-gradient(ellipse at 30% 40%, #2D1B30 0%, #1A0E1E 60%)" }}>
         {/* Decorative elements */}
         <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: "linear-gradient(rgba(232,223,192,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(232,223,192,0.3) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
-        <motion.div animate={{ scale: [1, 1.2, 1], opacity: [0.04, 0.08, 0.04] }} transition={{ duration: 8, repeat: Infinity }}
-          className="absolute top-1/4 start-1/4 w-[500px] h-[500px] bg-[#6B4C8A] rounded-full blur-[150px]" />
+        <div className="absolute top-1/4 start-1/4 w-[500px] h-[500px] bg-[#6B4C8A] opacity-[0.06] rounded-full blur-[150px]" />
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="grid md:grid-cols-2 gap-10 md:gap-20 items-center">

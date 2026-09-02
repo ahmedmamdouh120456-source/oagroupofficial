@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
 import { Link } from "react-router";
 import { ChevronLeft, ChevronRight, Play, Sparkles, Zap, Target, MessageCircle, Camera, Palette as PaletteIcon, Code, TrendingUp, ExternalLink, Video } from "lucide-react";
 import { useLang } from "../LanguageContext";
@@ -34,18 +34,6 @@ function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: str
       className="text-[#E8DFC0]">
       {count}+{suffix}
     </motion.span>
-  );
-}
-
-/* ─── Floating Particle ─── */
-function FloatingParticle({ delay, x, y, size }: { delay: number; x: string; y: string; size: number }) {
-  return (
-    <motion.div
-      className="absolute rounded-full bg-[#6B4C8A]"
-      style={{ left: x, top: y, width: size, height: size }}
-      animate={{ y: [0, -20, 0], opacity: [0.1, 0.4, 0.1] }}
-      transition={{ duration: 4, delay, repeat: Infinity, ease: "easeInOut" }}
-    />
   );
 }
 
@@ -95,9 +83,6 @@ export function HomePage() {
   const font = lang === "ar" ? "'Cairo', sans-serif" : "'DM Sans', sans-serif";
   const Arrow = lang === "ar" ? ChevronLeft : ChevronRight;
   const heroRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll();
-  const heroY = useTransform(scrollYProgress, [0, 0.3], [0, 150]);
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.25], [1, 0]);
   const [showVideo, setShowVideo] = useState(false);
 
   const typedTexts = lang === "ar"
@@ -109,22 +94,9 @@ export function HomePage() {
       {/* ═══ HERO ═══ */}
       <section ref={heroRef} className="relative min-h-screen flex items-center overflow-hidden"
         style={{ background: "radial-gradient(ellipse at 60% 40%, #2D1B30 0%, #1A0E1E 50%, #120A14 100%)" }}>
-        {/* Noise texture */}
-        <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")" }} />
-        
-        {/* Animated glow orbs */}
-        <motion.div animate={{ scale: [1, 1.2, 1], opacity: [0.06, 0.12, 0.06] }} transition={{ duration: 8, repeat: Infinity }}
-          className="absolute top-1/3 left-1/4 w-[600px] h-[600px] bg-[#6B4C8A] rounded-full blur-[180px]" />
-        <motion.div animate={{ scale: [1, 1.3, 1], opacity: [0.03, 0.07, 0.03] }} transition={{ duration: 10, repeat: Infinity, delay: 2 }}
-          className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-[#C9A84C] rounded-full blur-[150px]" />
-
-        {/* Floating particles */}
-        {[
-          { delay: 0, x: "10%", y: "20%", size: 3 }, { delay: 1, x: "80%", y: "30%", size: 2 },
-          { delay: 2, x: "30%", y: "70%", size: 4 }, { delay: 0.5, x: "70%", y: "60%", size: 2 },
-          { delay: 1.5, x: "50%", y: "40%", size: 3 }, { delay: 3, x: "90%", y: "80%", size: 2 },
-          { delay: 0.8, x: "15%", y: "55%", size: 3 }, { delay: 2.5, x: "60%", y: "15%", size: 2 },
-        ].map((p, i) => <FloatingParticle key={i} {...p} />)}
+        {/* Static glow orbs (soft radial gradients — no filter cost) */}
+        <div className="absolute top-1/3 left-1/4 w-[600px] h-[600px] rounded-full" style={{ background: "radial-gradient(circle, rgba(107,76,138,0.16), transparent 65%)" }} />
+        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full" style={{ background: "radial-gradient(circle, rgba(201,168,76,0.09), transparent 65%)" }} />
 
         {/* Grid lines */}
         <div className="absolute inset-0 opacity-[0.02]" style={{
@@ -132,11 +104,12 @@ export function HomePage() {
           backgroundSize: "80px 80px"
         }} />
 
-        <motion.div style={{ y: heroY, opacity: heroOpacity }}
-className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 w-full grid md:grid-cols-2 gap-8 md:gap-16 items-center pt-24 sm:pt-28 md:pt-32 pb-14 sm:pb-20 md:pb-20"          <div>
+        <div
+          className="relative z-10 max-w-7xl mx-auto px-6 w-full grid md:grid-cols-2 gap-12 md:gap-16 items-center pt-28 md:pt-32 pb-20 md:pb-20">
+          <div>
             {/* Badge */}
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-3 px-5 py-2 rounded-full border border-[#E8DFC0]/15 bg-[#E8DFC0]/[0.03] backdrop-blur-sm mb-10">
+              className="inline-flex items-center gap-3 px-5 py-2 rounded-full border border-[#E8DFC0]/15 bg-[#E8DFC0]/[0.03] mb-10">
               <span className="relative flex h-2.5 w-2.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-400" />
@@ -213,9 +186,9 @@ className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 w-full grid md:grid-cols
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2 }}
               className="mt-14 flex gap-8 md:gap-12">
               {[
-                { target: 50, label: t("عميل", "Clients") },
+                { target: 5, label: t("سنوات خبرة", "Years") },
                 { target: 100, label: t("مشروع", "Projects") },
-                { target: 3, label: t("دول", "Countries") },
+                { target: 40, label: t("علامة تجارية", "Brands") },
               ].map((s) => (
                 <div key={s.label}>
                   <AnimatedCounter target={s.target} />
@@ -229,33 +202,29 @@ className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 w-full grid md:grid-cols
           {/* Hero Image */}
           <motion.div initial={{ opacity: 0, scale: 0.85, rotate: 2 }} animate={{ opacity: 1, scale: 1, rotate: 0 }} transition={{ duration: 1.2, delay: 0.5 }}
             className="relative flex justify-center w-full max-w-sm sm:max-w-md md:max-w-none mx-auto mt-4 md:mt-0">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#6B4C8A]/30 to-[#C9A84C]/10 rounded-[3rem] blur-[100px] scale-90" />
+            <div className="absolute inset-0 rounded-[3rem] scale-90" style={{ background: "radial-gradient(circle, rgba(107,76,138,0.28), transparent 70%)" }} />
             {/* Decorative ring */}
-            <motion.div animate={{ rotate: 360 }} transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-              className="absolute -inset-3 md:-inset-4 rounded-[3rem] border border-dashed border-[#6B4C8A]/15" />
+            <div className="absolute -inset-3 md:-inset-4 rounded-[3rem] border border-dashed border-[#6B4C8A]/15" />
             <img src={characterImg} alt="OA Group" className="relative z-10 w-full max-w-lg rounded-3xl border border-[#E8DFC0]/15 ring-1 ring-[#C9A84C]/15 shadow-[0_30px_90px_rgba(0,0,0,0.55)]" />
             {/* Floating badges */}
-            <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 3, repeat: Infinity }}
-              className="absolute top-6 md:top-8 start-1 md:-start-6 z-20 px-3 md:px-4 py-1.5 md:py-2 rounded-xl bg-[#1A0E1E]/90 backdrop-blur-md border border-[#E8DFC0]/10 flex items-center gap-2">
+            <div className="absolute top-6 md:top-8 start-1 md:-start-6 z-20 px-3 md:px-4 py-1.5 md:py-2 rounded-xl bg-[#1A0E1E] border border-[#E8DFC0]/10 flex items-center gap-2">
               <Sparkles className="w-4 h-4 text-[#C9A84C]" />
-              <span className="text-[#E8DFC0] text-xs" style={{ fontFamily: "'JetBrains Mono', monospace" }}>+50 {t("عميل", "Clients")}</span>
-            </motion.div>
-            <motion.div animate={{ y: [0, 10, 0] }} transition={{ duration: 3.5, repeat: Infinity, delay: 1 }}
-              className="absolute bottom-10 md:bottom-12 end-1 md:-end-6 z-20 px-3 md:px-4 py-1.5 md:py-2 rounded-xl bg-[#1A0E1E]/90 backdrop-blur-md border border-[#6B4C8A]/20 flex items-center gap-2">
+              <span className="text-[#E8DFC0] text-xs" style={{ fontFamily: "'JetBrains Mono', monospace" }}>{t("إبداع بلا حدود", "CREATIVE STUDIO")}</span>
+            </div>
+            <div className="absolute bottom-10 md:bottom-12 end-1 md:-end-6 z-20 px-3 md:px-4 py-1.5 md:py-2 rounded-xl bg-[#1A0E1E] border border-[#6B4C8A]/20 flex items-center gap-2">
               <Zap className="w-4 h-4 text-[#A87FC4]" />
               <span className="text-[#E8DFC0] text-xs" style={{ fontFamily: "'JetBrains Mono', monospace" }}>OA REACH</span>
-            </motion.div>
+            </div>
           </motion.div>
-        </motion.div>
+        </div>
 
         {/* Scroll indicator */}
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2.5 }}
           className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2">
           <span className="text-[#E8DFC0]/20 text-[10px] tracking-[0.3em]" style={{ fontFamily: "'JetBrains Mono', monospace" }}>SCROLL</span>
-          <motion.div animate={{ y: [0, 8, 0] }} transition={{ duration: 1.5, repeat: Infinity }}
-            className="w-5 h-8 rounded-full border border-[#E8DFC0]/15 flex justify-center pt-1.5">
+          <div className="w-5 h-8 rounded-full border border-[#E8DFC0]/15 flex justify-center pt-1.5">
             <div className="w-1 h-2 rounded-full bg-[#E8DFC0]/30" />
-          </motion.div>
+          </div>
         </motion.div>
       </section>
 
@@ -279,14 +248,12 @@ className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 w-full grid md:grid-cols
             <div className="aspect-video bg-gradient-to-br from-[#2D1B30] to-[#1A0E1E] flex items-center justify-center relative overflow-hidden">
               <div className="absolute inset-0 bg-[#6B4C8A]/5" />
               {/* Abstract shapes */}
-              <motion.div animate={{ rotate: 360 }} transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-                className="absolute w-[300px] h-[300px] border border-[#6B4C8A]/10 rounded-full" />
-              <motion.div animate={{ rotate: -360 }} transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
-                className="absolute w-[200px] h-[200px] border border-[#E8DFC0]/5 rounded-full" />
-              
+              <div className="absolute w-[300px] h-[300px] border border-[#6B4C8A]/10 rounded-full" />
+              <div className="absolute w-[200px] h-[200px] border border-[#E8DFC0]/5 rounded-full" />
+
               {/* Play button */}
               <motion.div whileHover={{ scale: 1.1 }}
-                className="relative z-10 w-20 h-20 rounded-full bg-[#E8DFC0]/10 backdrop-blur-md border border-[#E8DFC0]/20 flex items-center justify-center group-hover:bg-[#E8DFC0]/20 transition-all duration-500">
+                className="relative z-10 w-20 h-20 rounded-full bg-[#E8DFC0]/10 border border-[#E8DFC0]/20 flex items-center justify-center group-hover:bg-[#E8DFC0]/20 transition-all duration-500">
                 <Play className="w-8 h-8 text-[#E8DFC0] ms-1" fill="currentColor" />
               </motion.div>
 
@@ -306,7 +273,7 @@ className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 w-full grid md:grid-cols
       {/* ═══ SERVICES PREVIEW ═══ */}
       <section className="py-16 md:py-28 relative" style={{ background: "#150D18" }}>
         {/* Background glow */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-[#6B4C8A] opacity-[0.04] blur-[150px] rounded-full" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full" style={{ background: "radial-gradient(circle, rgba(107,76,138,0.08), transparent 65%)" }} />
         
         <div className="max-w-7xl mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12 md:mb-20">
@@ -394,47 +361,12 @@ className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 w-full grid md:grid-cols
             </div>
           </div>
 
-          <div className="mb-8" />
-
-          {/* Testimonials */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { text: t("O.A Group غيّرت شكل البراند بتاعنا بالكامل. نتائج الحملات كانت فوق كل التوقعات!", "O.A Group completely transformed our brand. Campaign results exceeded all expectations!"), name: t("أحمد الشريف", "Michael Roberts"), role: t("صاحب بزنس", "Business Owner"), country: t("🇪🇬", "🇬🇧") },
-              { text: t("نظام OA REACH وفّر لنا وقتًا ومجهودًا كبيرًا في إدارة العملاء عبر المنصات المختلفة.", "OA REACH saved us tremendous time managing clients across every platform."), name: t("سيد الصيفي", "David Thompson"), role: t("مدير تسويق", "Marketing Director"), country: t("🇸🇦", "🇺🇸") },
-              { text: t("فريق محترف وسريع الاستجابة. شغلهم في الموشن جرافيك والمودريتور مختلف تمامًا.", "A professional & responsive team. Their motion graphics and moderator work is truly on another level."), name: t("مريم الحربي", "Sophie Laurent"), role: t("رائدة أعمال", "Entrepreneur"), country: t("🇸🇦", "🇫🇷") },
-              { text: t("التصوير والمونتاج بتاعهم رفع مستوى المحتوى بتاعنا بشكل واضح. الجودة سينمائية فعلاً.", "Their photography and editing raised our content to a whole new standard. Truly cinematic quality."), name: t("خالد المنصوري", "James Carter"), role: t("مدير علامة تجارية", "Brand Manager"), country: t("🇦🇪", "🇺🇸") },
-              { text: t("تعاملت مع وكالات كتير، بس الالتزام والاحترافية عند O.A Group حاجة تانية خالص.", "I've worked with many agencies, but O.A Group's commitment and professionalism are on another level entirely."), name: t("نورة القحطاني", "Emma Wilson"), role: t("مؤسِّسة مشروع", "Startup Founder"), country: t("🇸🇦", "🇬🇧") },
-              { text: t("من أول استشارة لحد تسليم الشغل، حسّيت إني مع شركاء حقيقيين مش مجرد مورّد خدمة.", "From the first consultation to final delivery, they felt like real partners, not just a service provider."), name: t("عمر الشيخ", "Daniel Meyer"), role: t("مدير تنفيذي", "CEO"), country: t("🇪🇬", "🇩🇪") },
-            ].map((item, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.15 }}
-                className="group bg-gradient-to-b from-[#150D18] to-[#1A0E1E] border border-[#E8DFC0]/[0.05] rounded-2xl p-6 md:p-8 hover:border-[#E8DFC0]/10 transition-all duration-500">
-                {/* Quote mark */}
-                <div className="flex items-center gap-2 mb-4">
-                  <div className="w-8 h-8 rounded-lg bg-[#C9A84C]/10 flex items-center justify-center">
-                    <span className="text-[#C9A84C] text-lg" style={{ fontFamily: "serif" }}>"</span>
-                  </div>
-                  <div className="flex gap-0.5">
-                    {[1,2,3,4,5].map(s => <span key={s} className="text-[#C9A84C]/60 text-xs">★</span>)}
-                  </div>
-                </div>
-                <p className="text-[#E8DFC0]/45 text-sm leading-relaxed mb-6" style={{ fontFamily: font }}>{item.text}</p>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-[#6B4C8A]/15 flex items-center justify-center text-sm">{item.country}</div>
-                  <div>
-                    <p className="text-[#E8DFC0] text-sm" style={{ fontFamily: font, fontWeight: 700 }}>{item.name}</p>
-                    <p className="text-[#E8DFC0]/25 text-xs" style={{ fontFamily: font }}>{item.role}</p>
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
 
       {/* ═══ CTA ═══ */}
       <section className="py-16 md:py-24 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #2D1B30 0%, #1A0E1E 50%, #120A14 100%)" }}>
-        <motion.div animate={{ scale: [1, 1.1, 1], opacity: [0.04, 0.08, 0.04] }} transition={{ duration: 6, repeat: Infinity }}
-          className="absolute inset-0 bg-[#6B4C8A] blur-[150px] rounded-full mx-auto w-1/2 h-full" />
+        <div className="absolute inset-0 mx-auto w-1/2 h-full rounded-full" style={{ background: "radial-gradient(circle, rgba(107,76,138,0.10), transparent 65%)" }} />
         {/* Decorative lines */}
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#6B4C8A]/20 to-transparent" />
         
