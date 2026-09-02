@@ -241,36 +241,26 @@ export function HomePage() {
             <h2 className="text-[#E8DFC0] mb-3" style={{ fontFamily: font, fontWeight: 900, fontSize: "clamp(1.6rem, 4vw, 2rem)" }}>
               {t("شغلنا بيتكلم عننا", "Our Work Speaks Volumes")}
             </h2>
-          </motion.div>
-
-          <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            className="relative group cursor-pointer rounded-2xl overflow-hidden border border-[#E8DFC0]/5 hover:border-[#6B4C8A]/30 transition-all duration-700"
-            onClick={() => setShowVideo(true)}>
-            {/* Thumbnail */}
-            <div className="aspect-video bg-gradient-to-br from-[#2D1B30] to-[#1A0E1E] flex items-center justify-center relative overflow-hidden">
-              <div className="absolute inset-0 bg-[#6B4C8A]/5" />
-              {/* Abstract shapes */}
-              <div className="absolute w-[300px] h-[300px] border border-[#6B4C8A]/10 rounded-full" />
-              <div className="absolute w-[200px] h-[200px] border border-[#E8DFC0]/5 rounded-full" />
-
-              {/* Play button */}
-              <motion.div whileHover={{ scale: 1.1 }}
-                className="relative z-10 w-20 h-20 rounded-full bg-[#E8DFC0]/10 border border-[#E8DFC0]/20 flex items-center justify-center group-hover:bg-[#E8DFC0]/20 transition-all duration-500">
-                <Play className="w-8 h-8 text-[#E8DFC0] ms-1" fill="currentColor" />
-              </motion.div>
-
-              {/* OA GROUP text */}
-              <div className="absolute bottom-6 start-6">
-                <span className="text-[#E8DFC0]/60 text-sm" style={{ fontFamily: "'JetBrains Mono', monospace", fontWeight: 700 }}>OAGROUP</span>
-                <span className="text-[#E8DFC0]/30 text-xs block" style={{ fontFamily: font }}>{t("الشوريل الرسمي ٢٠٢٥", "Official Showreel 2025")}</span>
-              </div>
-              <div className="absolute bottom-6 end-6">
-                <span className="text-[#E8DFC0]/20 text-xs" style={{ fontFamily: "'JetBrains Mono', monospace" }}>02:30</span>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+          <motion.div
+  initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  className="relative rounded-2xl overflow-hidden border border-[#E8DFC0]/5"
+>
+  <div className="aspect-video bg-[#1A0E1E] relative overflow-hidden">
+    <video
+      src="/showreel.mp4"
+      controls
+      playsInline
+      preload="metadata"
+      className="w-full h-full object-cover"
+    >
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</motion.div>
+</div>
+</section>
 
       {/* ═══ SERVICES PREVIEW ═══ */}
       <section className="py-16 md:py-28 relative" style={{ background: "#150D18" }}>
