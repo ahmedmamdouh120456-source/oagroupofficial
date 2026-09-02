@@ -230,64 +230,54 @@ export function HomePage() {
         </motion.div>
       </section>
 
-      <section
-  className="py-16 md:py-24 relative overflow-hidden"
-  style={{
-    background:
-      "linear-gradient(180deg, #120A14 0%, #1A0E1E 50%, #150D18 100%)",
-  }}
->
-  <div className="max-w-5xl mx-auto px-6">
+      {/* ═══ VIDEO SHOWREEL SECTION ═══ */}
+      <section className="py-16 md:py-24 relative overflow-hidden" style={{ background: "linear-gradient(180deg, #120A14 0%, #1A0E1E 50%, #150D18 100%)" }}>
+        <div className="max-w-5xl mx-auto px-6">
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            className="text-center mb-12">
+            <span className="text-[#6B4C8A]/50 tracking-[0.2em] text-xs mb-4 block" style={{ fontFamily: "'JetBrains Mono', monospace" }}>
+              {t("شاهدنا", "SHOWREEL")}
+            </span>
+            <h2 className="text-[#E8DFC0] mb-3" style={{ fontFamily: font, fontWeight: 900, fontSize: "clamp(1.6rem, 4vw, 2rem)" }}>
+              {t("شغلنا بيتكلم عننا", "Our Work Speaks Volumes")}
+            </h2>
+          </motion.div>
 
-    {/* Showreel Title */}
-    <motion.div
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      className="text-center mb-12"
-    >
-      <span
-        className="text-[#6B4C8A]/50 tracking-[0.2em] text-xs mb-4 block"
-        style={{ fontFamily: "'JetBrains Mono', monospace" }}
-      >
-        {t("شاهدنا", "SHOWREEL")}
-      </span>
+          <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            className="relative">
+            {/* Decorative background behind the video */}
+            <div className="absolute -inset-4 md:-inset-10 rounded-[3rem] pointer-events-none" style={{ background: "radial-gradient(circle at 50% 50%, rgba(107,76,138,0.22), transparent 70%)" }} />
+            <div className="absolute -inset-2 md:-inset-4 rounded-[2.5rem] border border-[#6B4C8A]/15 pointer-events-none" />
 
-      <h2
-        className="text-[#E8DFC0] mb-3"
-        style={{
-          fontFamily: font,
-          fontWeight: 900,
-          fontSize: "clamp(1.6rem, 4vw, 2rem)",
-        }}
-      >
-        {t("شغلنا بيتكلم عننا", "Our Work Speaks Volumes")}
-      </h2>
-    </motion.div>
+            {/* Inline self-hosted video (landscape) — autoplay, muted, loop */}
+            <div className="relative rounded-2xl overflow-hidden border border-[#E8DFC0]/10 shadow-[0_30px_90px_rgba(0,0,0,0.5)] bg-black">
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                controls
+                preload="metadata"
+                poster={characterImg}
+                className="w-full aspect-video object-cover bg-black"
+              >
+                <source src="/showreel.mp4" type="video/mp4" />
+                {t("متصفحك لا يدعم تشغيل الفيديو", "Your browser does not support the video tag.")}
+              </video>
+            </div>
 
-    {/* Showreel Video */}
-    <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      className="relative rounded-2xl overflow-hidden border border-[#E8DFC0]/5"
-    >
-      <div className="aspect-video bg-[#1A0E1E] relative overflow-hidden">
-        <video
-        poster="/showrell cover.jpg"
-          src="/showreel.mp4"
-          controls
-          playsInline
-          preload="metadata"
-          className="w-full h-full object-cover"
-        >
-          Your browser does not support the video tag.
-        </video>
-      </div>
-    </motion.div>
+            {/* Caption under the video */}
+            <div className="mt-4 flex items-center justify-between px-1">
+              <div>
+                <span className="text-[#E8DFC0]/60 text-sm" style={{ fontFamily: "'JetBrains Mono', monospace", fontWeight: 700 }}>OAGROUP</span>
+                <span className="text-[#E8DFC0]/30 text-xs block" style={{ fontFamily: font }}>{t("الشوريل الرسمي ٢٠٢٥", "Official Showreel 2025")}</span>
+              </div>
+              <span className="text-[#E8DFC0]/20 text-xs" style={{ fontFamily: "'JetBrains Mono', monospace" }}>OA REACH</span>
+            </div>
+          </motion.div>
+        </div>
+      </section>
 
-  </div>
-</section>
       {/* ═══ SERVICES PREVIEW ═══ */}
       <section className="py-16 md:py-28 relative" style={{ background: "#150D18" }}>
         {/* Background glow */}
@@ -371,9 +361,9 @@ export function HomePage() {
                   { name: t("G3A — عبد الله قدري", "G3A — Abdullah Kadry"), logo: g3aLogo },
                   { name: t("دي بير", "De Beer Refinish"), logo: debeerLogo },
                 ].map((c, i) => (
-                  <div key={`${set}-${i}`} title={c.name} className="flex-shrink-0 h-16 w-36 ms-14 flex items-center justify-center">
+                  <div key={`${set}-${i}`} title={c.name} className="flex-shrink-0 h-16 w-40 ms-14 flex items-center justify-center">
                     <img src={c.logo} alt={c.name}
-                      className="max-h-full max-w-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
+                      className="h-10 w-auto max-w-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
                   </div>
                 ))
               ))}
