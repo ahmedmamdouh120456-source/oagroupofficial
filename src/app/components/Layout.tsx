@@ -7,7 +7,7 @@ import { LangProvider, useLang } from "./LanguageContext";
 function LayoutInner() {
   const { dir } = useLang();
   return (
-<div className="min-h-screen w-full overflow-x-hidden flex flex-col"      <Navbar />
+<div className="min-h-screen w-full overflow-x-hidden flex flex-col">  <Navbar />
       <main className="flex-1">
         <Outlet />
       </main>
