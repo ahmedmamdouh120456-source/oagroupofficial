@@ -2,7 +2,7 @@
 @import './tailwind.css';
 @import './theme.css';
 /* Mobile Performance Optimization */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   [class*="blur-[180px]"] {
     filter: blur(72px) !important;
   }
