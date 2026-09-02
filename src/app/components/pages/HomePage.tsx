@@ -261,7 +261,6 @@ export function HomePage() {
 </motion.div>
 </div>
 </section>
-
       {/* ═══ SERVICES PREVIEW ═══ */}
       <section className="py-16 md:py-28 relative" style={{ background: "#150D18" }}>
         {/* Background glow */}
