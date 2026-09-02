@@ -206,15 +206,17 @@ export function HomePage() {
             {/* Decorative ring */}
             <div className="absolute -inset-3 md:-inset-4 rounded-[3rem] border border-dashed border-[#6B4C8A]/15" />
             <img src={characterImg} alt="OA Group" className="relative z-10 w-full max-w-lg rounded-3xl border border-[#E8DFC0]/15 ring-1 ring-[#C9A84C]/15 shadow-[0_30px_90px_rgba(0,0,0,0.55)]" />
-            {/* Floating badges */}
-            <div className="absolute top-6 md:top-8 start-1 md:-start-6 z-20 px-3 md:px-4 py-1.5 md:py-2 rounded-xl bg-[#1A0E1E] border border-[#E8DFC0]/10 flex items-center gap-2">
+            {/* Floating badges — very subtle float (~3%) */}
+            <motion.div animate={{ y: [0, -4, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute top-6 md:top-8 start-1 md:-start-6 z-20 px-3 md:px-4 py-1.5 md:py-2 rounded-xl bg-[#1A0E1E] border border-[#E8DFC0]/10 flex items-center gap-2">
               <Sparkles className="w-4 h-4 text-[#C9A84C]" />
               <span className="text-[#E8DFC0] text-xs" style={{ fontFamily: "'JetBrains Mono', monospace" }}>{t("إبداع بلا حدود", "CREATIVE STUDIO")}</span>
-            </div>
-            <div className="absolute bottom-10 md:bottom-12 end-1 md:-end-6 z-20 px-3 md:px-4 py-1.5 md:py-2 rounded-xl bg-[#1A0E1E] border border-[#6B4C8A]/20 flex items-center gap-2">
+            </motion.div>
+            <motion.div animate={{ y: [0, 4, 0] }} transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+              className="absolute bottom-10 md:bottom-12 end-1 md:-end-6 z-20 px-3 md:px-4 py-1.5 md:py-2 rounded-xl bg-[#1A0E1E] border border-[#6B4C8A]/20 flex items-center gap-2">
               <Zap className="w-4 h-4 text-[#A87FC4]" />
               <span className="text-[#E8DFC0] text-xs" style={{ fontFamily: "'JetBrains Mono', monospace" }}>OA REACH</span>
-            </div>
+            </motion.div>
           </motion.div>
         </div>
 
@@ -241,20 +243,32 @@ export function HomePage() {
             </h2>
           </motion.div>
 
-          <div>
-  {/* Video */}
-  <div className="aspect-video bg-[#1A0E1E] relative overflow-hidden">
-    <video
-      src="/showreel.mp4"
-      controls
-      playsInline
-      preload="metadata"
-      className="w-full h-full object-cover"
-    >
-      Your browser does not support the video tag.
-    </video>
-  </div>
-</div>
+          <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            className="relative group cursor-pointer rounded-2xl overflow-hidden border border-[#E8DFC0]/5 hover:border-[#6B4C8A]/30 transition-all duration-700"
+            onClick={() => setShowVideo(true)}>
+            {/* Thumbnail */}
+            <div className="aspect-video bg-gradient-to-br from-[#2D1B30] to-[#1A0E1E] flex items-center justify-center relative overflow-hidden">
+              <div className="absolute inset-0 bg-[#6B4C8A]/5" />
+              {/* Abstract shapes */}
+              <div className="absolute w-[300px] h-[300px] border border-[#6B4C8A]/10 rounded-full" />
+              <div className="absolute w-[200px] h-[200px] border border-[#E8DFC0]/5 rounded-full" />
+
+              {/* Play button */}
+              <motion.div whileHover={{ scale: 1.1 }}
+                className="relative z-10 w-20 h-20 rounded-full bg-[#E8DFC0]/10 border border-[#E8DFC0]/20 flex items-center justify-center group-hover:bg-[#E8DFC0]/20 transition-all duration-500">
+                <Play className="w-8 h-8 text-[#E8DFC0] ms-1" fill="currentColor" />
+              </motion.div>
+
+              {/* OA GROUP text */}
+              <div className="absolute bottom-6 start-6">
+                <span className="text-[#E8DFC0]/60 text-sm" style={{ fontFamily: "'JetBrains Mono', monospace", fontWeight: 700 }}>OAGROUP</span>
+                <span className="text-[#E8DFC0]/30 text-xs block" style={{ fontFamily: font }}>{t("الشوريل الرسمي ٢٠٢٥", "Official Showreel 2025")}</span>
+              </div>
+              <div className="absolute bottom-6 end-6">
+                <span className="text-[#E8DFC0]/20 text-xs" style={{ fontFamily: "'JetBrains Mono', monospace" }}>02:30</span>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
@@ -276,27 +290,28 @@ export function HomePage() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {/* Bento layout: 3+3 top row, 2+2+2 bottom row on desktop */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-5 md:gap-6">
             {[
-              { num: "01", icon: PaletteIcon, title: t("الجرافيك والموشن", "Graphic & Motion"), desc: t("هويات بصرية، تصميمات سوشيال ميديا، وفيديوهات موشن جرافيك احترافية", "Visual identities, social media designs, and professional motion graphics"), tags: [t("هوية بصرية", "Brand Identity"), t("موشن", "Motion"), t("ريلز", "Reels")], color: "#E8DFC0" },
-              { num: "02", icon: Code, title: t("البرمجة والتقنية", "Development & Tech"), desc: t("مواقع إلكترونية، تطبيقات موبايل، وأنظمة مخصصة تعمل على مدار الساعة", "Websites, mobile apps, and custom systems working 24/7"), tags: [t("مواقع", "Web"), t("تطبيقات", "Apps")], color: "#A87FC4" },
-              { num: "03", icon: Target, title: t("التسويق الرقمي", "Digital Marketing"), desc: t("حملات ذكية ومدروسة على جميع المنصات بنتائج قابلة للقياس", "Smart campaigns across all platforms with measurable results"), tags: [t("إعلانات", "Ads"), "SEO", "Meta"], color: "#6B4C8A" },
-              { num: "04", icon: MessageCircle, title: t("خدمة المودريتور", "Moderator Service"), desc: t("فريق متخصص يرد على رسائل وتعليقات صفحاتك باحترافية ٢٤/٧", "Specialized team responding to your page messages professionally 24/7"), tags: [t("ردود", "Replies"), t("مبيعات", "Sales")], color: "#C9A84C" },
-              { num: "05", icon: Video, title: t("التصوير والمونتاج", "Photography & Editing"), desc: t("تصوير احترافي للمنتجات والفعاليات، ومونتاج فيديو بتصحيح ألوان ومؤثرات", "Professional product & event shooting, plus video editing with color grading & effects"), tags: [t("تصوير", "Photo"), t("مونتاج", "Editing"), t("ألوان", "Grading")], color: "#A87FC4" },
+              { num: "01", icon: PaletteIcon, span: "lg:col-span-3", title: t("الجرافيك والموشن", "Graphic & Motion"), desc: t("هويات بصرية، تصميمات سوشيال ميديا، وفيديوهات موشن جرافيك احترافية", "Visual identities, social media designs, and professional motion graphics"), tags: [t("هوية بصرية", "Brand Identity"), t("موشن", "Motion"), t("ريلز", "Reels")], color: "#E8DFC0" },
+              { num: "02", icon: Code, span: "lg:col-span-3", title: t("البرمجة والتقنية", "Development & Tech"), desc: t("مواقع إلكترونية، تطبيقات موبايل، وأنظمة مخصصة تعمل على مدار الساعة", "Websites, mobile apps, and custom systems working 24/7"), tags: [t("مواقع", "Web"), t("تطبيقات", "Apps")], color: "#A87FC4" },
+              { num: "03", icon: Target, span: "lg:col-span-2", title: t("التسويق الرقمي", "Digital Marketing"), desc: t("حملات ذكية ومدروسة على جميع المنصات بنتائج قابلة للقياس", "Smart campaigns across all platforms with measurable results"), tags: [t("إعلانات", "Ads"), "SEO", "Meta"], color: "#6B4C8A" },
+              { num: "04", icon: MessageCircle, span: "lg:col-span-2", title: t("خدمة المودريتور", "Moderator Service"), desc: t("فريق متخصص يرد على رسائل وتعليقات صفحاتك باحترافية ٢٤/٧", "Specialized team responding to your page messages professionally 24/7"), tags: [t("ردود", "Replies"), t("مبيعات", "Sales")], color: "#C9A84C" },
+              { num: "05", icon: Video, span: "lg:col-span-2", title: t("التصوير والمونتاج", "Photography & Editing"), desc: t("تصوير احترافي للمنتجات والفعاليات، ومونتاج فيديو بتصحيح ألوان ومؤثرات", "Professional product & event shooting, plus video editing with color grading & effects"), tags: [t("تصوير", "Photo"), t("مونتاج", "Editing"), t("ألوان", "Grading")], color: "#A87FC4" },
             ].map((s, i) => (
-              <motion.div key={s.num} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.12, duration: 0.6 }}
-                className="group relative bg-[#1A0E1E] border border-[#E8DFC0]/[0.06] rounded-2xl p-7 hover:-translate-y-3 transition-all duration-500 hover:border-[#E8DFC0]/15 hover:shadow-[0_20px_60px_rgba(107,76,138,0.12)] overflow-hidden">
-                {/* Hover glow */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
-                  style={{ background: `radial-gradient(circle at 50% 0%, ${s.color}08, transparent 70%)` }} />
-                <span className="absolute top-4 end-5 text-[#E8DFC0]/[0.04] group-hover:text-[#E8DFC0]/[0.08] transition-colors duration-500"
+              <motion.div key={s.num} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08, duration: 0.5 }}
+                className={`${s.span} group relative bg-[#150D18] rounded-2xl p-7 md:p-8 overflow-hidden transition-transform duration-300 hover:-translate-y-1`}
+                style={{ border: "1px solid rgba(232,223,192,0.07)" }}>
+                {/* Top accent line in the card's own color */}
+                <div className="absolute top-0 start-0 h-[3px] w-16 rounded-full" style={{ background: `linear-gradient(90deg, ${s.color}, transparent)` }} />
+                <span className="absolute top-4 end-5 text-[#E8DFC0]/[0.05]"
                   style={{ fontFamily: "'JetBrains Mono', monospace", fontWeight: 700, fontSize: "clamp(2.5rem, 6vw, 3.5rem)" }}>{s.num}</span>
                 <ServiceIcon icon={s.icon} color={s.color} />
-                <h3 className="text-[#E8DFC0] mt-5 mb-2" style={{ fontFamily: font, fontWeight: 800, fontSize: "1.1rem" }}>{s.title}</h3>
-                <p className="text-[#E8DFC0]/30 text-sm mb-5 leading-relaxed" style={{ fontFamily: font }}>{s.desc}</p>
+                <h3 className="text-[#E8DFC0] mt-5 mb-2" style={{ fontFamily: font, fontWeight: 800, fontSize: "1.15rem" }}>{s.title}</h3>
+                <p className="text-[#E8DFC0]/35 text-sm mb-5 leading-relaxed max-w-md" style={{ fontFamily: font }}>{s.desc}</p>
                 <div className="flex flex-wrap gap-2">
                   {s.tags.map((tag) => (
-                    <span key={tag} className="px-2.5 py-0.5 text-xs rounded-full bg-[#E8DFC0]/[0.03] text-[#E8DFC0]/30 border border-[#E8DFC0]/[0.06]" style={{ fontFamily: font }}>{tag}</span>
+                    <span key={tag} className="px-2.5 py-0.5 text-xs rounded-full bg-[#E8DFC0]/[0.03] text-[#E8DFC0]/35 border border-[#E8DFC0]/[0.06]" style={{ fontFamily: font }}>{tag}</span>
                   ))}
                 </div>
               </motion.div>
@@ -345,6 +360,26 @@ export function HomePage() {
                       className="max-h-full max-w-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
                   </div>
                 ))
+              ))}
+            </div>
+          </div>
+
+          {/* Trust bar under the logos */}
+          <div className="mt-4 flex flex-col items-center gap-6">
+            <div className="h-px w-full max-w-xl bg-gradient-to-r from-transparent via-[#E8DFC0]/10 to-transparent" />
+            <p className="text-[#E8DFC0]/30 text-sm text-center max-w-lg" style={{ fontFamily: font }}>
+              {t("علامات تجارية في مصر والسعودية والخليج اختارت O.A Group لبناء حضورها الرقمي", "Brands across Egypt, Saudi Arabia & the Gulf chose O.A Group to build their digital presence")}
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-3">
+              {[
+                { icon: Sparkles, label: t("جودة إبداعية عالية", "Premium Creative") },
+                { icon: Zap, label: t("تسليم سريع وملتزم", "Fast & Reliable") },
+                { icon: Target, label: t("نتائج قابلة للقياس", "Measurable Results") },
+              ].map((chip) => (
+                <div key={chip.label} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#E8DFC0]/[0.03] border border-[#E8DFC0]/[0.07]">
+                  <chip.icon className="w-3.5 h-3.5 text-[#C9A84C]" />
+                  <span className="text-[#E8DFC0]/45 text-xs" style={{ fontFamily: font }}>{chip.label}</span>
+                </div>
               ))}
             </div>
           </div>
