@@ -6,11 +6,15 @@ import { LangProvider, useLang } from "./LanguageContext";
 
 function LayoutInner() {
   const { dir } = useLang();
+
   return (
-<div className="min-h-screen w-full overflow-x-hidden flex flex-col">  <Navbar />
-      <main className="flex-1">
+    <div className="min-h-screen w-full min-w-0 overflow-x-hidden flex flex-col">
+      <Navbar />
+
+      <main className="flex-1 min-w-0">
         <Outlet />
       </main>
+
       <Footer />
       <WhatsAppFloat />
       <ScrollRestoration />
