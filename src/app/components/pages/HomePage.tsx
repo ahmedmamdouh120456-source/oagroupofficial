@@ -133,8 +133,9 @@ export function HomePage() {
         }} />
 
         <motion.div style={{ y: heroY, opacity: heroOpacity }}
-className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 w-full grid md:grid-cols-2 gap-8 md:gap-16 items-center pt-24 sm:pt-28 md:pt-32 pb-14 sm:pb-20 md:pb-20"          <div>
-            {/* Badge */}
+className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 w-full grid md:grid-cols-2 gap-8 md:gap-16 items-center pt-24 sm:pt-28 md:pt-32 pb-14 sm:pb-20 md:pb-20"
+>
+  <div>            {/* Badge */}
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
               className="inline-flex items-center gap-3 px-5 py-2 rounded-full border border-[#E8DFC0]/15 bg-[#E8DFC0]/[0.03] backdrop-blur-sm mb-10">
               <span className="relative flex h-2.5 w-2.5">
