@@ -274,6 +274,7 @@ export function HomePage() {
     >
       <div className="aspect-video bg-[#1A0E1E] relative overflow-hidden">
         <video
+        poster="/showrell cover.jpg"
           src="/showreel.mp4"
           controls
           playsInline
