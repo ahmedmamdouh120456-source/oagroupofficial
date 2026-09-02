@@ -83,7 +83,8 @@ export function GlobalPresencePage() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
             {/* Text */}
-            <motion.div initial={{ opacity: 0, x: lang === "ar" ? 30 : -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+            <motion.div initial={{ opacity: 0, x: lang === "ar" ? 30 : -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
+              className="order-2 md:order-1">
               <span className="text-[#C9A84C]/50 tracking-[0.2em] text-xs mb-4 block" style={{ fontFamily: mono }}>
                 {t("حضورنا في السعودية", "PRESENCE IN SAUDI ARABIA")}
               </span>
@@ -129,10 +130,11 @@ export function GlobalPresencePage() {
             </motion.div>
 
             {/* Editorial browser mockup */}
-            <motion.div initial={{ opacity: 0, scale: 0.96 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.7 }}
-              className="relative">
+            <motion.a href="https://siffah.com/" target="_blank" rel="noopener noreferrer"
+              initial={{ opacity: 0, scale: 0.96 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.7 }}
+              className="relative block group order-1 md:order-2 cursor-pointer">
               <div className="absolute -inset-4 bg-gradient-to-br from-[#C9A84C]/10 to-transparent blur-2xl rounded-3xl" />
-              <div className="relative rounded-2xl overflow-hidden border border-[#E8DFC0]/10 shadow-[0_30px_80px_rgba(0,0,0,0.5)] bg-[#150D18]">
+              <div className="relative rounded-2xl overflow-hidden border border-[#E8DFC0]/10 shadow-[0_30px_80px_rgba(0,0,0,0.5)] bg-[#150D18] transition-all duration-500 group-hover:scale-[1.02] group-hover:border-[#C9A84C]/30">
                 {/* Browser chrome */}
                 <div className="flex items-center gap-2 px-4 py-3 border-b border-[#E8DFC0]/[0.06] bg-[#120A14]">
                   <span className="w-2.5 h-2.5 rounded-full bg-[#E8DFC0]/20" />
@@ -151,9 +153,15 @@ export function GlobalPresencePage() {
                     <MapPin className="w-3.5 h-3.5 text-[#C9A84C]" />
                     <span className="text-[#E8DFC0]/80 text-xs" style={{ fontFamily: mono }}>{t("السعودية", "SAUDI ARABIA")}</span>
                   </div>
+                  {/* Visit hint */}
+                  <div className="absolute bottom-4 end-4 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#E8DFC0] text-[#1A0E1E] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    style={{ fontFamily: font, fontWeight: 700 }}>
+                    <span className="text-xs">{t("زيارة الموقع", "Visit Site")}</span>
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </div>
                 </div>
               </div>
-            </motion.div>
+            </motion.a>
           </div>
         </div>
       </section>
@@ -170,10 +178,11 @@ export function GlobalPresencePage() {
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
             {/* Cinematic visual */}
-            <motion.div initial={{ opacity: 0, scale: 0.96 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.7 }}
-              className="relative order-2 md:order-1">
+            <motion.a href="https://www.instagram.com/Fxstudio.egy/" target="_blank" rel="noopener noreferrer"
+              initial={{ opacity: 0, scale: 0.96 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.7 }}
+              className="relative block group order-1 cursor-pointer">
               <div className="absolute -inset-4 bg-gradient-to-br from-[#A87FC4]/10 to-transparent blur-2xl rounded-3xl" />
-              <div className="relative rounded-2xl overflow-hidden border border-[#A87FC4]/15 shadow-[0_30px_90px_rgba(0,0,0,0.6)] aspect-[4/5] md:aspect-[4/3]">
+              <div className="relative rounded-2xl overflow-hidden border border-[#A87FC4]/15 shadow-[0_30px_90px_rgba(0,0,0,0.6)] aspect-[4/5] md:aspect-[4/3] transition-all duration-500 group-hover:scale-[1.02] group-hover:border-[#A87FC4]/40">
                 <img src={fxStudioLocation} alt={t("استوديو FXSTUDIO", "FXSTUDIO location")} className="w-full h-full object-cover" />
                 {/* Cinematic overlay */}
                 <div className="pointer-events-none absolute inset-0" style={{ background: "linear-gradient(to top, rgba(13,7,16,0.75) 0%, rgba(13,7,16,0.1) 40%, transparent 70%)" }} />
@@ -186,12 +195,18 @@ export function GlobalPresencePage() {
                   <span className="block text-[#E8DFC0] tracking-[0.3em]" style={{ fontFamily: mono, fontWeight: 700, fontSize: "clamp(1.1rem, 3vw, 1.5rem)" }}>FXSTUDIO</span>
                   <span className="block text-[#E8DFC0]/40 text-xs tracking-[0.2em] mt-1" style={{ fontFamily: mono }}>CREATIVE PRODUCTION</span>
                 </div>
+                {/* Visit hint */}
+                <div className="absolute bottom-5 end-5 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-r from-[#6B4C8A] to-[#A87FC4] text-[#E8DFC0] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  style={{ fontFamily: font, fontWeight: 700 }}>
+                  <span className="text-xs">{t("زيارة إنستجرام", "Visit Instagram")}</span>
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </div>
               </div>
-            </motion.div>
+            </motion.a>
 
             {/* Text */}
             <motion.div initial={{ opacity: 0, x: lang === "ar" ? -30 : 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
-              className="order-1 md:order-2">
+              className="order-2">
               <span className="text-[#A87FC4]/60 tracking-[0.2em] text-xs mb-4 block" style={{ fontFamily: mono }}>
                 {t("استوديو الإبداع لدينا", "OUR CREATIVE STUDIO")}
               </span>

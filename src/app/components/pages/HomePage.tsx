@@ -133,7 +133,7 @@ export function HomePage() {
         }} />
 
         <motion.div style={{ y: heroY, opacity: heroOpacity }}
-          className="relative z-10 max-w-7xl mx-auto px-6 w-full grid md:grid-cols-2 gap-10 md:gap-16 items-center pt-28 md:pt-32 pb-16 md:pb-20">
+          className="relative z-10 max-w-7xl mx-auto px-6 w-full grid md:grid-cols-2 gap-12 md:gap-16 items-center pt-28 md:pt-32 pb-20 md:pb-20">
           <div>
             {/* Badge */}
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
@@ -220,7 +220,8 @@ export function HomePage() {
               ].map((s) => (
                 <div key={s.label}>
                   <AnimatedCounter target={s.target} />
-                  <div className="text-[#E8DFC0]/25 text-xs mt-1" style={{ fontFamily: font }}>{s.label}</div>
+                  <div className="h-[2px] w-8 mt-2 mb-1.5 rounded-full bg-gradient-to-r from-[#C9A84C] to-transparent" />
+                  <div className="text-[#E8DFC0]/25 text-xs" style={{ fontFamily: font }}>{s.label}</div>
                 </div>
               ))}
             </motion.div>
@@ -228,20 +229,20 @@ export function HomePage() {
 
           {/* Hero Image */}
           <motion.div initial={{ opacity: 0, scale: 0.85, rotate: 2 }} animate={{ opacity: 1, scale: 1, rotate: 0 }} transition={{ duration: 1.2, delay: 0.5 }}
-            className="relative flex justify-center hidden md:flex">
+            className="relative flex justify-center w-full max-w-sm sm:max-w-md md:max-w-none mx-auto mt-4 md:mt-0">
             <div className="absolute inset-0 bg-gradient-to-br from-[#6B4C8A]/30 to-[#C9A84C]/10 rounded-[3rem] blur-[100px] scale-90" />
             {/* Decorative ring */}
             <motion.div animate={{ rotate: 360 }} transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-              className="absolute -inset-4 rounded-[3rem] border border-dashed border-[#6B4C8A]/15" />
-            <img src={characterImg} alt="OA Group" className="relative z-10 w-full max-w-lg rounded-3xl shadow-2xl shadow-[#6B4C8A]/10" />
+              className="absolute -inset-3 md:-inset-4 rounded-[3rem] border border-dashed border-[#6B4C8A]/15" />
+            <img src={characterImg} alt="OA Group" className="relative z-10 w-full max-w-lg rounded-3xl border border-[#E8DFC0]/15 ring-1 ring-[#C9A84C]/15 shadow-[0_30px_90px_rgba(0,0,0,0.55)]" />
             {/* Floating badges */}
             <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 3, repeat: Infinity }}
-              className="absolute top-8 -start-6 z-20 px-4 py-2 rounded-xl bg-[#1A0E1E]/90 backdrop-blur-md border border-[#E8DFC0]/10 flex items-center gap-2">
+              className="absolute top-6 md:top-8 start-1 md:-start-6 z-20 px-3 md:px-4 py-1.5 md:py-2 rounded-xl bg-[#1A0E1E]/90 backdrop-blur-md border border-[#E8DFC0]/10 flex items-center gap-2">
               <Sparkles className="w-4 h-4 text-[#C9A84C]" />
               <span className="text-[#E8DFC0] text-xs" style={{ fontFamily: "'JetBrains Mono', monospace" }}>+50 {t("عميل", "Clients")}</span>
             </motion.div>
             <motion.div animate={{ y: [0, 10, 0] }} transition={{ duration: 3.5, repeat: Infinity, delay: 1 }}
-              className="absolute bottom-12 -end-6 z-20 px-4 py-2 rounded-xl bg-[#1A0E1E]/90 backdrop-blur-md border border-[#6B4C8A]/20 flex items-center gap-2">
+              className="absolute bottom-10 md:bottom-12 end-1 md:-end-6 z-20 px-3 md:px-4 py-1.5 md:py-2 rounded-xl bg-[#1A0E1E]/90 backdrop-blur-md border border-[#6B4C8A]/20 flex items-center gap-2">
               <Zap className="w-4 h-4 text-[#A87FC4]" />
               <span className="text-[#E8DFC0] text-xs" style={{ fontFamily: "'JetBrains Mono', monospace" }}>OA REACH</span>
             </motion.div>
@@ -309,7 +310,7 @@ export function HomePage() {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-[#6B4C8A] opacity-[0.04] blur-[150px] rounded-full" />
         
         <div className="max-w-7xl mx-auto px-6">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-20">
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-12 md:mb-20">
             <span className="text-[#6B4C8A]/50 tracking-[0.2em] text-xs mb-4 block" style={{ fontFamily: "'JetBrains Mono', monospace" }}>
               {t("خدماتنا", "SERVICES")}
             </span>
@@ -407,7 +408,7 @@ export function HomePage() {
               { text: t("من أول استشارة لحد تسليم الشغل، حسّيت إني مع شركاء حقيقيين مش مجرد مورّد خدمة.", "From the first consultation to final delivery, they felt like real partners, not just a service provider."), name: t("عمر الشيخ", "Daniel Meyer"), role: t("مدير تنفيذي", "CEO"), country: t("🇪🇬", "🇩🇪") },
             ].map((item, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.15 }}
-                className="group bg-gradient-to-b from-[#150D18] to-[#1A0E1E] border border-[#E8DFC0]/[0.05] rounded-2xl p-8 hover:border-[#E8DFC0]/10 transition-all duration-500">
+                className="group bg-gradient-to-b from-[#150D18] to-[#1A0E1E] border border-[#E8DFC0]/[0.05] rounded-2xl p-6 md:p-8 hover:border-[#E8DFC0]/10 transition-all duration-500">
                 {/* Quote mark */}
                 <div className="flex items-center gap-2 mb-4">
                   <div className="w-8 h-8 rounded-lg bg-[#C9A84C]/10 flex items-center justify-center">

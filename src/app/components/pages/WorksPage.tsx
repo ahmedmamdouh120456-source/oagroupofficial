@@ -88,7 +88,7 @@ export function WorksPage() {
           </div>
 
           {/* Grid */}
-          <div className="columns-1 sm:columns-2 lg:columns-3 gap-5 space-y-5">
+          <div className="columns-2 lg:columns-3 gap-3 sm:gap-5 space-y-3 sm:space-y-5">
             <AnimatePresence mode="popLayout">
               {filtered.map((p, i) => (
                 <motion.div key={`${lang}-${filter}-${i}`}

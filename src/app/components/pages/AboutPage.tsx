@@ -1,4 +1,5 @@
-import { motion } from "motion/react";
+import { motion, useScroll, useTransform } from "motion/react";
+import { useRef } from "react";
 import { useLang } from "../LanguageContext";
 import logoImg from "../../../imports/540454450_122108095274987112_4613267991255325676_n.jpg";
 import img4 from "../../../imports/4.jpg";
@@ -12,6 +13,13 @@ export function AboutPage() {
   const { t, lang } = useLang();
   const font = lang === "ar" ? "'Cairo', sans-serif" : "'DM Sans', sans-serif";
   const mono = "'JetBrains Mono', monospace";
+
+  const timelineRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress: timelineProgress } = useScroll({
+    target: timelineRef,
+    offset: ["start 75%", "end 60%"],
+  });
+  const fillOpacity = useTransform(timelineProgress, [0, 0.15], [0.35, 1]);
 
   const timeline = [
     { year: "2019", title: t("البداية — وُلد الحلم", "The Beginning — A Dream Was Born"), desc: t("تأسست O.A Group كفكرة بسيطة بين مجموعة من الشباب الطموح الذين يملكون شغفًا حقيقيًا بالتسويق الرقمي.", "O.A Group was founded as a simple idea among ambitious young people passionate about digital marketing."), icon: <Calendar className="w-5 h-5" />, color: "#E8DFC0" },
@@ -130,10 +138,16 @@ export function AboutPage() {
             </h2>
           </motion.div>
 
-          <div className="relative">
+          <div className="relative" ref={timelineRef}>
             {/* Center line */}
-            <div className="absolute top-0 bottom-0 start-6 md:start-1/2 w-px md:-translate-x-px">
-              <div className="h-full bg-gradient-to-b from-[#C9A84C]/30 via-[#6B4C8A]/20 to-transparent" />
+            <div className="absolute top-0 bottom-0 start-6 md:start-1/2 w-[2px] md:-translate-x-px overflow-hidden rounded-full">
+              {/* Faint track */}
+              <div className="absolute inset-0 bg-[#E8DFC0]/[0.06]" />
+              {/* Scroll-linked progress fill */}
+              <motion.div
+                className="absolute top-0 left-0 w-full h-full origin-top rounded-full bg-gradient-to-b from-[#C9A84C] via-[#A87FC4] to-[#6B4C8A] shadow-[0_0_12px_rgba(201,168,76,0.5)]"
+                style={{ scaleY: timelineProgress, opacity: fillOpacity }}
+              />
             </div>
 
             {timeline.map((item, i) => (

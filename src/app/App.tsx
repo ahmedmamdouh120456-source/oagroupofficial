@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { RouterProvider } from "react-router";
 import { Toaster } from "sonner";
 import { router } from "./routes";
+import { CursorGlow } from "./components/CursorGlow";
 
 export default function App() {
   useEffect(() => {
@@ -11,6 +12,7 @@ export default function App() {
   return (
     <>
       <Toaster position="top-center" theme="dark" />
+      <CursorGlow />
       <RouterProvider router={router} />
     </>
   );
