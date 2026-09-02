@@ -230,36 +230,62 @@ export function HomePage() {
         </motion.div>
       </section>
 
-      {/* ═══ VIDEO SHOWREEL SECTION ═══ */}
-      <section className="py-16 md:py-24 relative overflow-hidden" style={{ background: "linear-gradient(180deg, #120A14 0%, #1A0E1E 50%, #150D18 100%)" }}>
-        <div className="max-w-5xl mx-auto px-6">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            className="text-center mb-12">
-            <span className="text-[#6B4C8A]/50 tracking-[0.2em] text-xs mb-4 block" style={{ fontFamily: "'JetBrains Mono', monospace" }}>
-              {t("شاهدنا", "SHOWREEL")}
-            </span>
-            <h2 className="text-[#E8DFC0] mb-3" style={{ fontFamily: font, fontWeight: 900, fontSize: "clamp(1.6rem, 4vw, 2rem)" }}>
-              {t("شغلنا بيتكلم عننا", "Our Work Speaks Volumes")}
-            </h2>
-          <motion.div
-  initial={{ opacity: 0, y: 40 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true }}
-  className="relative rounded-2xl overflow-hidden border border-[#E8DFC0]/5"
+      <section
+  className="py-16 md:py-24 relative overflow-hidden"
+  style={{
+    background:
+      "linear-gradient(180deg, #120A14 0%, #1A0E1E 50%, #150D18 100%)",
+  }}
 >
-  <div className="aspect-video bg-[#1A0E1E] relative overflow-hidden">
-    <video
-      src="/showreel.mp4"
-      controls
-      playsInline
-      preload="metadata"
-      className="w-full h-full object-cover"
+  <div className="max-w-5xl mx-auto px-6">
+
+    {/* Showreel Title */}
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="text-center mb-12"
     >
-      Your browser does not support the video tag.
-    </video>
+      <span
+        className="text-[#6B4C8A]/50 tracking-[0.2em] text-xs mb-4 block"
+        style={{ fontFamily: "'JetBrains Mono', monospace" }}
+      >
+        {t("شاهدنا", "SHOWREEL")}
+      </span>
+
+      <h2
+        className="text-[#E8DFC0] mb-3"
+        style={{
+          fontFamily: font,
+          fontWeight: 900,
+          fontSize: "clamp(1.6rem, 4vw, 2rem)",
+        }}
+      >
+        {t("شغلنا بيتكلم عننا", "Our Work Speaks Volumes")}
+      </h2>
+    </motion.div>
+
+    {/* Showreel Video */}
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="relative rounded-2xl overflow-hidden border border-[#E8DFC0]/5"
+    >
+      <div className="aspect-video bg-[#1A0E1E] relative overflow-hidden">
+        <video
+          src="/showreel.mp4"
+          controls
+          playsInline
+          preload="metadata"
+          className="w-full h-full object-cover"
+        >
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </motion.div>
+
   </div>
-</motion.div>
-</div>
 </section>
       {/* ═══ SERVICES PREVIEW ═══ */}
       <section className="py-16 md:py-28 relative" style={{ background: "#150D18" }}>
