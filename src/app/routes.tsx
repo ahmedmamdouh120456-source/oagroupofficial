@@ -9,6 +9,10 @@ import { ContactPage } from "./components/pages/ContactPage";
 
 export const router = createBrowserRouter([
   {
+    path: "/admin",
+    element: null,
+  },
+  {
     path: "/",
     Component: Layout,
     children: [
