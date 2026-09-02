@@ -9,7 +9,7 @@ export function OAReachPage() {
   const Arrow = lang === "ar" ? ChevronLeft : ChevronRight;
 
   const features = [
-    { icon: <Layers className="w-5 h-5" />, title: t("جمع موحد لكل المنصات", "Unified Platform Collection"), desc: t("Facebook · Instagram · WhatsApp · TikTok · Snapchat — جميعها في لوحة تحكم واحدة", "Facebook · Instagram · WhatsApp · TikTok · Snapchat — all in one dashboard") },
+    { icon: <Layers className="w-5 h-5" />, title: t("جمع موحد لكل المنصات", "Unified Platform Collection"), desc: t("واتساب · فيسبوك · إنستجرام · لينكد إن · تيك توك · سناب شات · الإيميلات · المكالمات — جميعها في لوحة تحكم واحدة", "WhatsApp · Facebook · Instagram · LinkedIn · TikTok · Snapchat · Emails · Calls — all in one dashboard") },
     { icon: <Bot className="w-5 h-5" />, title: t("شات بوت ذكاء اصطناعي", "AI Chatbot That Replies Like a Human"), desc: t("ذكاء اصطناعي مخصص لشركتك، يتحدث بأسلوبك، ويبني علاقة حقيقية مع العميل", "AI tailored to your company, speaks your style, builds relationships with clients") },
     { icon: <BarChart3 className="w-5 h-5" />, title: "Lead Scoring", desc: t("كل محادثة تحصل على تقييم من ٠ إلى ١٠٠ يحدد أولوي��ها — ركّز على العملاء الأهم", "Every conversation gets a score out of 100 — focus on what matters") },
     { icon: <Zap className="w-5 h-5" />, title: t("حملات رسائل جماعية", "Bulk Message Campaigns"), desc: t("أرسل لآلاف العملاء في ثانية واحدة عبر جميع القنوات معًا", "Send to thousands of clients in one second across all channels") },
@@ -21,7 +21,7 @@ export function OAReachPage() {
   return (
     <div className="pt-24">
       {/* Hero */}
-      <section className="py-24 relative overflow-hidden" style={{ background: "radial-gradient(ellipse at top center, #2D1B30 0%, #1A0E1E 50%, #120A14 100%)" }}>
+      <section className="py-16 md:py-24 relative overflow-hidden" style={{ background: "radial-gradient(ellipse at top center, #2D1B30 0%, #1A0E1E 50%, #120A14 100%)" }}>
         {/* Starfield dots */}
         <div className="absolute inset-0">
           {Array.from({ length: 40 }).map((_, i) => (
@@ -43,17 +43,39 @@ export function OAReachPage() {
           </motion.h1>
           <motion.h2 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}
             className="text-[#E8DFC0] mb-6" style={{ fontFamily: font, fontWeight: 900, fontSize: "clamp(1.5rem, 3vw, 2.2rem)" }}>
-            {t("النظام اللي مش موجود عند غيرنا", "The System No One Else Has")}
+            {t("تخيّل كل عملائك في مكان واحد", "Imagine All Your Customers in One Place")}
           </motion.h2>
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }}
             className="text-[#E8DFC0]/40 max-w-2xl mx-auto" style={{ fontFamily: font }}>
-            {t("منصة واحدة. كل القنوات. صفر عملاء ضايعين.", "One Platform. All Channels. Zero Missed Leads.")}
+            {t("منصة واحدة تجمع قنواتك، وترد على عملائك، وتضاعف مبيعاتك — دون أن يضيع عميل واحد.", "One platform that unifies your channels, replies to your customers, and multiplies your sales — without losing a single lead.")}
           </motion.p>
+
+          {/* Channels strip */}
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8 }}
+            className="mt-10 flex flex-wrap items-center justify-center gap-2.5">
+            {[
+              { name: t("واتساب", "WhatsApp"), color: "#25D366" },
+              { name: t("فيسبوك", "Facebook"), color: "#1877F2" },
+              { name: t("إنستجرام", "Instagram"), color: "#E1306C" },
+              { name: t("لينكد إن", "LinkedIn"), color: "#0A66C2" },
+              { name: t("تيك توك", "TikTok"), color: "#E8DFC0" },
+              { name: t("سناب شات", "Snapchat"), color: "#F7D000" },
+              { name: t("الإيميلات", "Emails"), color: "#C9A84C" },
+              { name: t("المكالمات", "Calls"), color: "#A87FC4" },
+            ].map((c, i) => (
+              <motion.span key={c.name} initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.85 + i * 0.06 }}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full border text-sm"
+                style={{ borderColor: `${c.color}30`, background: `${c.color}0d`, color: "#E8DFC0", fontFamily: font }}>
+                <span className="w-2 h-2 rounded-full" style={{ background: c.color }} />
+                {c.name}
+              </motion.span>
+            ))}
+          </motion.div>
         </div>
       </section>
 
       {/* Features */}
-      <section className="py-24" style={{ background: "#150D18" }}>
+      <section className="py-16 md:py-24" style={{ background: "#150D18" }}>
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-8">
             {/* Feature list */}
@@ -77,12 +99,16 @@ export function OAReachPage() {
             <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}
               className="bg-[#1A0E1E] border border-[#E8DFC0]/10 rounded-2xl p-6 shadow-[0_0_60px_rgba(107,76,138,0.1)] sticky top-28 self-start">
               {/* Platform tabs */}
-              <div className="flex items-center gap-2 mb-5 pb-4 border-b border-[#E8DFC0]/5">
+              <div className="flex flex-wrap items-center gap-2 mb-5 pb-4 border-b border-[#E8DFC0]/5">
                 {[
                   { name: "WhatsApp", color: "#25D366" },
-                  { name: "Instagram", color: "#E1306C" },
                   { name: "Facebook", color: "#1877F2" },
+                  { name: "Instagram", color: "#E1306C" },
+                  { name: "LinkedIn", color: "#0A66C2" },
                   { name: "TikTok", color: "#E8DFC0" },
+                  { name: "Snapchat", color: "#F7D000" },
+                  { name: "Email", color: "#C9A84C" },
+                  { name: "Calls", color: "#A87FC4" },
                 ].map((p) => (
                   <span key={p.name} className="px-3 py-1.5 text-xs rounded-lg border" style={{ borderColor: `${p.color}30`, color: `${p.color}80`, background: `${p.color}08`, fontFamily: "'DM Sans', sans-serif" }}>
                     <span className="inline-block w-1.5 h-1.5 rounded-full me-1.5" style={{ background: p.color }} />

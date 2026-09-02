@@ -6,12 +6,9 @@ import { ServicesPage } from "./components/pages/ServicesPage";
 import { OAReachPage } from "./components/pages/OAReachPage";
 import { WorksPage } from "./components/pages/WorksPage";
 import { ContactPage } from "./components/pages/ContactPage";
+import { GlobalPresencePage } from "./components/pages/GlobalPresencePage";
 
 export const router = createBrowserRouter([
-  {
-    path: "/admin",
-    element: null,
-  },
   {
     path: "/",
     Component: Layout,
@@ -21,6 +18,7 @@ export const router = createBrowserRouter([
       { path: "services", Component: ServicesPage },
       { path: "oa-reach", Component: OAReachPage },
       { path: "works", Component: WorksPage },
+      { path: "global-presence", Component: GlobalPresencePage },
       { path: "contact", Component: ContactPage },
       { path: "*", Component: HomePage },
     ],

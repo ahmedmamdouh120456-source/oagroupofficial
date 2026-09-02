@@ -31,14 +31,14 @@ export function AboutPage() {
   return (
     <div className="pt-24">
       {/* ═══ HERO ═══ */}
-      <section className="relative py-28 overflow-hidden" style={{ background: "radial-gradient(ellipse at 30% 40%, #2D1B30 0%, #1A0E1E 60%)" }}>
+      <section className="relative py-16 md:py-28 overflow-hidden" style={{ background: "radial-gradient(ellipse at 30% 40%, #2D1B30 0%, #1A0E1E 60%)" }}>
         {/* Decorative elements */}
         <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: "linear-gradient(rgba(232,223,192,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(232,223,192,0.3) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
         <motion.div animate={{ scale: [1, 1.2, 1], opacity: [0.04, 0.08, 0.04] }} transition={{ duration: 8, repeat: Infinity }}
           className="absolute top-1/4 start-1/4 w-[500px] h-[500px] bg-[#6B4C8A] rounded-full blur-[150px]" />
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="grid md:grid-cols-2 gap-20 items-center">
+          <div className="grid md:grid-cols-2 gap-10 md:gap-20 items-center">
             <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}>
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2 }}
                 className="inline-flex items-center gap-3 px-4 py-2 rounded-full border border-[#E8DFC0]/10 bg-[#E8DFC0]/[0.02] mb-8">
@@ -117,7 +117,7 @@ export function AboutPage() {
       </section>
 
       {/* ═══ TIMELINE ═══ */}
-      <section className="py-28 relative" style={{ background: "#1A0E1E" }}>
+      <section className="py-16 md:py-28 relative" style={{ background: "#1A0E1E" }}>
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#6B4C8A]/15 to-transparent" />
 
         <div className="max-w-5xl mx-auto px-6">
@@ -125,7 +125,7 @@ export function AboutPage() {
             <span className="text-[#6B4C8A]/40 tracking-[0.2em] text-xs mb-4 block" style={{ fontFamily: mono }}>
               {t("رحلتنا", "OUR JOURNEY")}
             </span>
-            <h2 className="text-[#E8DFC0]" style={{ fontFamily: font, fontWeight: 900, fontSize: "2.2rem" }}>
+            <h2 className="text-[#E8DFC0]" style={{ fontFamily: font, fontWeight: 900, fontSize: "clamp(1.7rem, 4.5vw, 2.2rem)" }}>
               {t("من ٢٠١٩ لحد النهاردة", "From 2019 to Today")}
             </h2>
           </motion.div>
@@ -162,13 +162,13 @@ export function AboutPage() {
       </section>
 
       {/* ═══ VALUES ═══ */}
-      <section className="py-28 relative" style={{ background: "linear-gradient(180deg, #150D18 0%, #1A0E1E 100%)" }}>
+      <section className="py-16 md:py-28 relative" style={{ background: "linear-gradient(180deg, #150D18 0%, #1A0E1E 100%)" }}>
         <div className="max-w-7xl mx-auto px-6">
           <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="text-center mb-16">
             <span className="text-[#C9A84C]/40 tracking-[0.2em] text-xs mb-4 block" style={{ fontFamily: mono }}>
               {t("قيمنا", "OUR VALUES")}
             </span>
-            <h2 className="text-[#E8DFC0]" style={{ fontFamily: font, fontWeight: 900, fontSize: "2.2rem" }}>
+            <h2 className="text-[#E8DFC0]" style={{ fontFamily: font, fontWeight: 900, fontSize: "clamp(1.7rem, 4.5vw, 2.2rem)" }}>
               {t("المبادئ اللي بنمشي عليها", "The Principles We Live By")}
             </h2>
           </motion.div>
@@ -197,14 +197,14 @@ export function AboutPage() {
       <PartnersSection />
 
       {/* ═══ QUOTE ═══ */}
-      <section className="py-24 relative" style={{ background: "radial-gradient(ellipse at center, #2D1B30 0%, #1A0E1E 70%)" }}>
+      <section className="py-16 md:py-24 relative" style={{ background: "radial-gradient(ellipse at center, #2D1B30 0%, #1A0E1E 70%)" }}>
         <div className="max-w-3xl mx-auto px-6 text-center">
           <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}>
             <div className="w-16 h-16 rounded-2xl mx-auto mb-8 overflow-hidden bg-[#1A0E1E] p-0.5 border border-[#E8DFC0]/10">
               <img src={logoImg} alt="O.A Group" className="w-full h-full rounded-xl object-cover" />
             </div>
             <Sparkles className="w-6 h-6 text-[#C9A84C]/30 mx-auto mb-6" />
-            <blockquote className="text-[#E8DFC0]/60 mb-8" style={{ fontFamily: font, fontWeight: 700, fontSize: "1.3rem", lineHeight: 2 }}>
+            <blockquote className="text-[#E8DFC0]/60 mb-8" style={{ fontFamily: font, fontWeight: 700, fontSize: "clamp(1.05rem, 3vw, 1.3rem)", lineHeight: 2 }}>
               {t(
                 "\"لا نعمل لننتهي — نعمل لنصنع شيئًا يبقى. كل مشروع بالنسبة لنا هو فرصة لنثبت أن الإبداع العربي قادر على منافسة أي أحد في العالم.\"",
                 "\"We don't work just to finish — we work to create something that lasts. Every project is an opportunity to prove that Arab creativity can compete with anyone.\""

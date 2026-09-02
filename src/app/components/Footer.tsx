@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { Mail, Copy, Check, Phone, Instagram, Facebook, Twitter } from "lucide-react";
+import { Mail, Copy, Check, Phone, Instagram, Facebook } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
 import { useLang } from "./LanguageContext";
@@ -20,8 +20,6 @@ export function Footer() {
   const socials = [
     { icon: <Facebook className="w-4 h-4" />, href: "https://www.facebook.com/oaroup", label: "Facebook" },
     { icon: <Instagram className="w-4 h-4" />, href: "https://instagram.com/oagroupdigital", label: "Instagram" },
-    { icon: <Twitter className="w-4 h-4" />, href: "https://x.com/oagroupofficial", label: "X" },
-    { icon: <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm4.75 7.56-1.47 6.91a.78.78 0 0 1-1.11.54l-2.56-1.89-1.24 1.19a.54.54 0 0 1-.43.17l.18-2.6 4.77-4.31c.21-.18-.05-.28-.32-.1L8.59 13.1l-2.5-.78c-.54-.17-.55-.54.12-.8l9.76-3.76c.45-.17.84.1.78.8z"/></svg>, href: "https://t.me/oagroupofficial", label: "Telegram" },
   ];
 
   return (
@@ -39,7 +37,7 @@ export function Footer() {
             </div>
             <p className="text-[#E8DFC0] text-sm mb-1" style={{ fontFamily: font, fontWeight: 700 }}>{t("نصنع الفرق رقميًا", "Making the Digital Difference")}</p>
             <p className="text-[#E8DFC0]/40 text-xs" style={{ fontFamily: font }}>{t("وكالة تسويق رقمي", "Digital Marketing Agency")}</p>
-            <p className="text-[#E8DFC0]/30 text-xs mt-2" style={{ fontFamily: "'JetBrains Mono', monospace" }}>OAGROUP · EGYPT · KSA</p>
+            <p className="text-[#E8DFC0]/30 text-xs mt-2" style={{ fontFamily: "'JetBrains Mono', monospace" }}>OAGROUP · {t("شركة عالمية", "INTERNATIONAL COMPANY")}</p>
           </div>
 
           {/* Quick Links */}
@@ -52,6 +50,7 @@ export function Footer() {
                 { to: "/services", label: t("خدماتنا", "Our Services") },
                 { to: "/oa-reach", label: "OA REACH" },
                 { to: "/works", label: t("أعمالنا", "Our Work") },
+                { to: "/global-presence", label: t("حضورنا العالمي", "Global Presence") },
                 { to: "/contact", label: t("تواصل معنا", "Contact Us") },
               ].map((l) => (
                 <Link key={l.to} to={l.to} className="block text-[#E8DFC0]/40 hover:text-[#E8DFC0] transition-colors text-sm" style={{ fontFamily: font }}>{l.label}</Link>
@@ -67,6 +66,7 @@ export function Footer() {
               <p style={{ fontFamily: font }}>{t("الجرافيك والموشن", "Graphic & Motion")}</p>
               <p style={{ fontFamily: font }}>{t("البرمجة والتقنية", "Development & Tech")}</p>
               <p style={{ fontFamily: font }}>{t("خدمة المودريتور", "Moderator Service")}</p>
+              <p style={{ fontFamily: font }}>{t("التصوير والمونتاج", "Photography & Editing")}</p>
               <p style={{ fontFamily: font }}>OA REACH</p>
             </div>
           </div>
@@ -111,7 +111,7 @@ export function Footer() {
             {t("© ٢٠٢٦ O.A GROUP — جميع الحقوق محفوظة", "© 2026 O.A GROUP — All Rights Reserved")}
           </p>
           <p className="text-[#E8DFC0]/20 text-xs" style={{ fontFamily: font }}>
-            {t("مصر · السعودية", "Egypt · Saudi Arabia")}
+            {t("شركة عالمية", "An International Company")}
           </p>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import { Link } from "react-router";
 import { useLang } from "../LanguageContext";
-import { Palette, Monitor, Megaphone, Camera, PenTool, Code, Smartphone, Database, Search, BarChart3, Share2, ChevronLeft, ChevronRight, CheckCircle2, MessagesSquare, Clock, UserCheck, ShieldCheck, Headphones } from "lucide-react";
+import { Palette, Monitor, Megaphone, Camera, PenTool, Code, Smartphone, Database, Search, BarChart3, Share2, ChevronLeft, ChevronRight, CheckCircle2, MessagesSquare, Clock, UserCheck, ShieldCheck, Headphones, Video, Film, Scissors, Aperture, Music } from "lucide-react";
 
 export function ServicesPage() {
   const { t, lang } = useLang();
@@ -65,6 +65,20 @@ export function ServicesPage() {
         { icon: <ShieldCheck className="w-4 h-4" />, label: t("حماية سمعة العلامة التجارية", "Brand Reputation Protection") },
       ],
     },
+    {
+      num: "05",
+      icon: <Video className="w-8 h-8" />,
+      title: t("التصوير والمونتاج", "Photography & Video Editing"),
+      desc: t("نصوّر منتجاتك وفعالياتك بأعلى جودة، ونحوّل اللقطات الخام إلى فيديوهات احترافية بمونتاج متقن، تصحيح ألوان، ومؤثرات تجذب جمهورك وتوصّل رسالتك.", "We shoot your products and events at the highest quality, and turn raw footage into professional videos with polished editing, color grading, and effects that captivate your audience and deliver your message."),
+      color: "#A87FC4",
+      items: [
+        { icon: <Camera className="w-4 h-4" />, label: t("تصوير فوتوغرافي احترافي للمنتجات", "Professional Product Photography") },
+        { icon: <Aperture className="w-4 h-4" />, label: t("تصوير الفعاليات والريبورتاج", "Event & Reportage Shooting") },
+        { icon: <Scissors className="w-4 h-4" />, label: t("مونتاج فيديو احترافي", "Professional Video Editing") },
+        { icon: <Film className="w-4 h-4" />, label: t("تصحيح الألوان والمعالجة النهائية", "Color Grading & Post-Production") },
+        { icon: <Music className="w-4 h-4" />, label: t("مكساج صوت ومؤثرات", "Sound Mixing & Effects") },
+      ],
+    },
   ];
 
   return (
@@ -122,10 +136,10 @@ export function ServicesPage() {
       </section>
 
       {/* Process */}
-      <section className="py-24" style={{ background: "#150D18" }}>
+      <section className="py-16 md:py-24" style={{ background: "#150D18" }}>
         <div className="max-w-5xl mx-auto px-6">
           <motion.h2 initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
-            className="text-[#E8DFC0] text-center mb-16" style={{ fontFamily: font, fontWeight: 900, fontSize: "2rem" }}>
+            className="text-[#E8DFC0] text-center mb-16" style={{ fontFamily: font, fontWeight: 900, fontSize: "clamp(1.6rem, 4vw, 2rem)" }}>
             {t("كيف نعمل؟", "How Do We Work?")}
           </motion.h2>
           <div className="grid md:grid-cols-4 gap-6">

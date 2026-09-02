@@ -26,6 +26,7 @@ export function Navbar() {
     { to: "/services", label: t("خدماتنا", "Services") },
     { to: "/oa-reach", label: "OA REACH" },
     { to: "/works", label: t("أعمالنا", "Our Work") },
+    { to: "/global-presence", label: t("حضورنا العالمي", "Global Presence") },
     { to: "/contact", label: t("تواصل معنا", "Contact") },
   ];
 

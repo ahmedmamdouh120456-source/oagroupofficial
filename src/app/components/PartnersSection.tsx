@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { useLang } from "./LanguageContext";
-import odooLogo from "../../imports/image.png";
+import odooLogo from "../../imports/image-3.png";
 
 const partners = [
   {

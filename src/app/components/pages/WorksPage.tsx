@@ -14,8 +14,16 @@ import img23 from "../../../imports/23.jpg";
 import img27 from "../../../imports/27.jpg";
 import img29 from "../../../imports/29.jpg";
 import imgBliss from "../../../imports/20167976c21deaa876ca0488a6a9fafe.jpg";
+import imgG3a1 from "../../../imports/6.jpg";
+import imgG3a2 from "../../../imports/1-1.png";
+import imgG3a3 from "../../../imports/2-2.jpg";
+import imgMishkah from "../../../imports/your_knowledge_path.jpg";
 
 const projects = [
+  { img: imgMishkah, title: { ar: "مشكاة — طريق المعرفة", en: "Mishkah — Knowledge Path" }, cat: { ar: "جرافيك", en: "Graphic" }, desc: { ar: "تصميم إبداعي مفاهيمي لجامعة مشكاة — رحلتك التعليمية تبدأ من هنا", en: "Conceptual creative design for Mishkah University — your knowledge path starts here" }, color: "#1E5E4E" },
+  { img: imgG3a1, title: { ar: "دي بير — 1K Plastic Primer", en: "DeBeer — 1K Plastic Primer" }, cat: { ar: "جرافيك", en: "Graphic" }, desc: { ar: "تصميم إعلاني لمنتج برايمر البلاستيك من دي بير بعلامة G3A", en: "Product ad design for DeBeer's plastic primer, G3A branding" }, color: "#052a5e" },
+  { img: imgG3a3, title: { ar: "دي بير — Berobase", en: "DeBeer — Berobase" }, cat: { ar: "جرافيك", en: "Graphic" }, desc: { ar: "تصميم سوشيال ميديا لبويات دي بير — جودة لا تُضاهى ولمعان يدوم", en: "Social media design for DeBeer paints — unmatched quality, lasting shine" }, color: "#C9A84C" },
+  { img: imgG3a2, title: { ar: "دي بير — HS Clear Coat", en: "DeBeer — HS Clear Coat" }, cat: { ar: "جرافيك", en: "Graphic" }, desc: { ar: "تصميم إعلاني للمعان الكريستالي واللمسة المثالية لطلاء السيارات", en: "Ad design for crystal-clear shine and the perfect car finish" }, color: "#6B4C8A" },
   { img: img4, title: { ar: "المتحدة للأخشاب", en: "Al-Motaheda Wood" }, cat: { ar: "جرافيك", en: "Graphic" }, desc: { ar: "تصميم إبداعي بعلامة اللانهاية يعكس جودة الخشب الطبيعي", en: "Creative infinity symbol design reflecting natural wood quality" }, color: "#C9A84C" },
   { img: img13, title: { ar: "المتحدة للأخشاب — UV", en: "Al-Motaheda — UV" }, cat: { ar: "جرافيك", en: "Graphic" }, desc: { ar: "تصميم UV مرمر يجمع بين الفخامة والعصرية", en: "UV marble design combining luxury and modernity" }, color: "#A87FC4" },
   { img: img23, title: { ar: "المتحدة — مطابخ", en: "Al-Motaheda — Kitchens" }, cat: { ar: "جرافيك", en: "Graphic" }, desc: { ar: "تصميم احترافي لعرض حلول المطابخ العصرية", en: "Professional design showcasing modern kitchen solutions" }, color: "#E8DFC0" },

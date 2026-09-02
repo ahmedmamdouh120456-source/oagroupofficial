@@ -1,15 +1,16 @@
 import { motion, useScroll, useTransform, AnimatePresence } from "motion/react";
 import { Link } from "react-router";
-import { ChevronLeft, ChevronRight, Play, Sparkles, Zap, Target, MessageCircle, Camera, Palette as PaletteIcon, Code, TrendingUp, ExternalLink } from "lucide-react";
+import { ChevronLeft, ChevronRight, Play, Sparkles, Zap, Target, MessageCircle, Camera, Palette as PaletteIcon, Code, TrendingUp, ExternalLink, Video } from "lucide-react";
 import { useLang } from "../LanguageContext";
 import { PartnersSection } from "../PartnersSection";
 import characterImg from "../../../imports/2-1.jpg";
-import mishkahLogo from "../../../imports/mishkah-logo.jpg";
-import ejazaLogo from "../../../imports/Untitled-1.png";
-import g3aLogo from "../../../imports/753663495_122106250665399523_3804081340914292497_n__1_.jpg";
-import debeerLogo from "../../../imports/image-1.png";
-import morshedLogo from "../../../imports/image-2.png";
-import motahedaLogo from "../../../imports/334970429_3533743230194053_5385116100951312850_n.jpg";
+import mishkahLogo from "../../../imports/w-mishkah.png";
+import ejazaLogo from "../../../imports/w-ejaza.png";
+import g3aLogo from "../../../imports/w-g3a.png";
+import debeerLogo from "../../../imports/w-debeer.png";
+import morshedLogo from "../../../imports/w-morshed.png";
+import motahedaLogo from "../../../imports/w-motaheda.png";
+import marolaLogo from "../../../imports/w-marola.png";
 import { useEffect, useState, useRef } from "react";
 
 /* ─── Animated Counter ─── */
@@ -29,7 +30,7 @@ function AnimatedCounter({ target, suffix = "" }: { target: number; suffix?: str
   }, [started, target]);
   return (
     <motion.span onViewportEnter={() => setStarted(true)}
-      style={{ fontFamily: "'JetBrains Mono', monospace", fontWeight: 700, fontSize: "2.4rem" }}
+      style={{ fontFamily: "'JetBrains Mono', monospace", fontWeight: 700, fontSize: "clamp(1.8rem, 5vw, 2.4rem)" }}
       className="text-[#E8DFC0]">
       {count}+{suffix}
     </motion.span>
@@ -132,7 +133,7 @@ export function HomePage() {
         }} />
 
         <motion.div style={{ y: heroY, opacity: heroOpacity }}
-          className="relative z-10 max-w-7xl mx-auto px-6 w-full grid md:grid-cols-2 gap-16 items-center pt-32 pb-20">
+          className="relative z-10 max-w-7xl mx-auto px-6 w-full grid md:grid-cols-2 gap-10 md:gap-16 items-center pt-28 md:pt-32 pb-16 md:pb-20">
           <div>
             {/* Badge */}
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
@@ -141,7 +142,7 @@ export function HomePage() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-400" />
               </span>
-              <span className="text-xs tracking-[0.2em] text-[#E8DFC0]/40" style={{ fontFamily: "'JetBrains Mono', monospace" }}>EGYPT · KSA</span>
+              <span className="text-xs tracking-[0.2em] text-[#E8DFC0]/40" style={{ fontFamily: "'JetBrains Mono', monospace" }}>{t("شركة عالمية", "INTERNATIONAL COMPANY")}</span>
             </motion.div>
 
             {/* Main headline */}
@@ -259,14 +260,14 @@ export function HomePage() {
       </section>
 
       {/* ═══ VIDEO SHOWREEL SECTION ═══ */}
-      <section className="py-24 relative overflow-hidden" style={{ background: "linear-gradient(180deg, #120A14 0%, #1A0E1E 50%, #150D18 100%)" }}>
+      <section className="py-16 md:py-24 relative overflow-hidden" style={{ background: "linear-gradient(180deg, #120A14 0%, #1A0E1E 50%, #150D18 100%)" }}>
         <div className="max-w-5xl mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             className="text-center mb-12">
             <span className="text-[#6B4C8A]/50 tracking-[0.2em] text-xs mb-4 block" style={{ fontFamily: "'JetBrains Mono', monospace" }}>
               {t("شاهدنا", "SHOWREEL")}
             </span>
-            <h2 className="text-[#E8DFC0] mb-3" style={{ fontFamily: font, fontWeight: 900, fontSize: "2rem" }}>
+            <h2 className="text-[#E8DFC0] mb-3" style={{ fontFamily: font, fontWeight: 900, fontSize: "clamp(1.6rem, 4vw, 2rem)" }}>
               {t("شغلنا بيتكلم عننا", "Our Work Speaks Volumes")}
             </h2>
           </motion.div>
@@ -303,7 +304,7 @@ export function HomePage() {
       </section>
 
       {/* ═══ SERVICES PREVIEW ═══ */}
-      <section className="py-28 relative" style={{ background: "#150D18" }}>
+      <section className="py-16 md:py-28 relative" style={{ background: "#150D18" }}>
         {/* Background glow */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-[#6B4C8A] opacity-[0.04] blur-[150px] rounded-full" />
         
@@ -312,7 +313,7 @@ export function HomePage() {
             <span className="text-[#6B4C8A]/50 tracking-[0.2em] text-xs mb-4 block" style={{ fontFamily: "'JetBrains Mono', monospace" }}>
               {t("خدماتنا", "SERVICES")}
             </span>
-            <h2 className="text-[#E8DFC0] mb-4" style={{ fontFamily: font, fontWeight: 900, fontSize: "2.5rem" }}>
+            <h2 className="text-[#E8DFC0] mb-4" style={{ fontFamily: font, fontWeight: 900, fontSize: "clamp(1.8rem, 5vw, 2.5rem)" }}>
               {t("ترسانتنا الكاملة", "Our Full Arsenal")}
             </h2>
             <p className="text-[#E8DFC0]/25 text-sm max-w-md mx-auto" style={{ fontFamily: font }}>
@@ -326,6 +327,7 @@ export function HomePage() {
               { num: "02", icon: Code, title: t("البرمجة والتقنية", "Development & Tech"), desc: t("مواقع إلكترونية، تطبيقات موبايل، وأنظمة مخصصة تعمل على مدار الساعة", "Websites, mobile apps, and custom systems working 24/7"), tags: [t("مواقع", "Web"), t("تطبيقات", "Apps")], color: "#A87FC4" },
               { num: "03", icon: Target, title: t("التسويق الرقمي", "Digital Marketing"), desc: t("حملات ذكية ومدروسة على جميع المنصات بنتائج قابلة للقياس", "Smart campaigns across all platforms with measurable results"), tags: [t("إعلانات", "Ads"), "SEO", "Meta"], color: "#6B4C8A" },
               { num: "04", icon: MessageCircle, title: t("خدمة المودريتور", "Moderator Service"), desc: t("فريق متخصص يرد على رسائل وتعليقات صفحاتك باحترافية ٢٤/٧", "Specialized team responding to your page messages professionally 24/7"), tags: [t("ردود", "Replies"), t("مبيعات", "Sales")], color: "#C9A84C" },
+              { num: "05", icon: Video, title: t("التصوير والمونتاج", "Photography & Editing"), desc: t("تصوير احترافي للمنتجات والفعاليات، ومونتاج فيديو بتصحيح ألوان ومؤثرات", "Professional product & event shooting, plus video editing with color grading & effects"), tags: [t("تصوير", "Photo"), t("مونتاج", "Editing"), t("ألوان", "Grading")], color: "#A87FC4" },
             ].map((s, i) => (
               <motion.div key={s.num} initial={{ opacity: 0, y: 50 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.12, duration: 0.6 }}
                 className="group relative bg-[#1A0E1E] border border-[#E8DFC0]/[0.06] rounded-2xl p-7 hover:-translate-y-3 transition-all duration-500 hover:border-[#E8DFC0]/15 hover:shadow-[0_20px_60px_rgba(107,76,138,0.12)] overflow-hidden">
@@ -333,7 +335,7 @@ export function HomePage() {
                 <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
                   style={{ background: `radial-gradient(circle at 50% 0%, ${s.color}08, transparent 70%)` }} />
                 <span className="absolute top-4 end-5 text-[#E8DFC0]/[0.04] group-hover:text-[#E8DFC0]/[0.08] transition-colors duration-500"
-                  style={{ fontFamily: "'JetBrains Mono', monospace", fontWeight: 700, fontSize: "3.5rem" }}>{s.num}</span>
+                  style={{ fontFamily: "'JetBrains Mono', monospace", fontWeight: 700, fontSize: "clamp(2.5rem, 6vw, 3.5rem)" }}>{s.num}</span>
                 <ServiceIcon icon={s.icon} color={s.color} />
                 <h3 className="text-[#E8DFC0] mt-5 mb-2" style={{ fontFamily: font, fontWeight: 800, fontSize: "1.1rem" }}>{s.title}</h3>
                 <p className="text-[#E8DFC0]/30 text-sm mb-5 leading-relaxed" style={{ fontFamily: font }}>{s.desc}</p>
@@ -357,73 +359,52 @@ export function HomePage() {
       </section>
 
       {/* ═══ REAL CLIENTS ═══ */}
-      <section className="py-28 relative" style={{ background: "#1A0E1E" }}>
+      <section className="py-16 md:py-28 relative" style={{ background: "#1A0E1E" }}>
         <div className="max-w-7xl mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-6">
             <span className="text-[#C9A84C]/40 tracking-[0.2em] text-xs mb-4 block" style={{ fontFamily: "'JetBrains Mono', monospace" }}>
               {t("ثقة عملئنا", "CLIENT TRUST")}
             </span>
-            <h2 className="text-[#E8DFC0] mb-3" style={{ fontFamily: font, fontWeight: 900, fontSize: "2.2rem" }}>
+            <h2 className="text-[#E8DFC0] mb-3" style={{ fontFamily: font, fontWeight: 900, fontSize: "clamp(1.7rem, 4.5vw, 2.2rem)" }}>
               {t("عملاء وثقوا بنا", "Clients Who Trusted Us")}
             </h2>
           </motion.div>
 
-          {/* Client Logos Row */}
-          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
-            className="flex flex-wrap items-center justify-center gap-4 md:gap-5 mb-14">
-            {[
-              { name: t("الجامعة الإسلامية بأمريكا الشمالية (مشكاة)", "Islamic University of North America (Mishkah)"), logo: mishkahLogo, logoBg: "#ffffff" },
-              { name: t("إجازة أونلاين", "Ejaza Online"), logo: ejazaLogo, logoBg: "#ffffff" },
-              { name: t("المرشد الأزهري", "Al-Morshd Al-Azhary"), logo: morshedLogo, logoBg: "#EDEAE0" },
-              { name: t("المتحدة للأخشاب", "Al Motaheda Wood"), logo: motahedaLogo, logoBg: "#ffffff" },
-              { name: t("G3A — عبد الله قدري", "G3A — Abdullah Kadry"), logo: g3aLogo, logoBg: "#ffffff" },
-              { name: t("دي بير", "De Beer Refinish"), logo: debeerLogo, logoBg: "#052a5e" },
-            ].map((c, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}
-                title={c.name}
-                className="h-20 w-36 rounded-2xl flex items-center justify-center p-3 border border-[#E8DFC0]/8 hover:border-[#E8DFC0]/20 transition-all"
-                style={{ background: c.logoBg }}>
-                <img src={c.logo} alt={c.name} className="max-h-full max-w-full object-contain" />
-              </motion.div>
-            ))}
-          </motion.div>
-
-          {/* Marquee */}
-          <div className="relative overflow-hidden mb-20">
-            <div className="absolute start-0 top-0 bottom-0 w-24 z-10" style={{ background: "linear-gradient(to right, #1A0E1E, transparent)" }} />
-            <div className="absolute end-0 top-0 bottom-0 w-24 z-10" style={{ background: "linear-gradient(to left, #1A0E1E, transparent)" }} />
-            <div className="flex w-max gap-6" style={{ animation: "marquee 30s linear infinite" }}>
+          {/* Client Logos Marquee */}
+          <div className="relative overflow-hidden mb-14">
+            <div className="absolute start-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: "linear-gradient(to right, #1A0E1E, transparent)" }} />
+            <div className="absolute end-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: "linear-gradient(to left, #1A0E1E, transparent)" }} />
+            <div className="flex w-max items-center" style={{ animation: "marquee 40s linear infinite" }}>
               {[0, 1].map((set) => (
-                <div key={set} className="flex gap-6">
-                  {[
-                    t("الجامعة الإسلامية بأمريكا الشمالية (مشكاة)", "Islamic University of North America (Mishkah)"),
-                    t("إجازة أونلاين", "Ejaza Online"),
-                    t("المرشد الأزهري", "Al-Morshd Al-Azhary"),
-                    t("الجداوي للأخشاب", "El-Gedawy Wood"),
-                    t("المتحدة للأخشاب", "Al-Motaheda Wood"),
-                    "Power Hydrographic Center",
-                    "Life Lines",
-                    "Aura Shop",
-                    "NAJ",
-                    "G3A",
-                    t("دي بير", "De Beer Refinish"),
-                  ].map((name, i) => (
-                    <div key={i} className="flex-shrink-0 px-6 h-11 rounded-xl bg-[#E8DFC0]/[0.02] border border-[#E8DFC0]/[0.04] flex items-center gap-3">
-                      <div className="w-1.5 h-1.5 rounded-full bg-[#6B4C8A]/50" />
-                      <span className="text-[#E8DFC0]/30 text-sm whitespace-nowrap" style={{ fontFamily: font }}>{name}</span>
-                    </div>
-                  ))}
-                </div>
+                [
+                  { name: t("الجامعة الإسلامية بأمريكا الشمالية (مشكاة)", "Islamic University of North America (Mishkah)"), logo: mishkahLogo },
+                  { name: t("إجازة أونلاين", "Ejaza Online"), logo: ejazaLogo },
+                  { name: t("المرشد الأزهري", "Al-Morshd Al-Azhary"), logo: morshedLogo },
+                  { name: t("المتحدة للأخشاب", "Al Motaheda Wood"), logo: motahedaLogo },
+                  { name: t("وود مارولا", "Wood Marola"), logo: marolaLogo },
+                  { name: t("G3A — عبد الله قدري", "G3A — Abdullah Kadry"), logo: g3aLogo },
+                  { name: t("دي بير", "De Beer Refinish"), logo: debeerLogo },
+                ].map((c, i) => (
+                  <div key={`${set}-${i}`} title={c.name} className="flex-shrink-0 h-16 w-36 ms-14 flex items-center justify-center">
+                    <img src={c.logo} alt={c.name}
+                      className="max-h-full max-w-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
+                  </div>
+                ))
               ))}
             </div>
           </div>
 
+          <div className="mb-8" />
+
           {/* Testimonials */}
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { text: t("O.A Group غيّرت شكل البراند بتاعنا بالكمل. نتائج الحملات كانت فوق كل التوقعات!", "O.A Group completely transformed our brand. Campaign results exceeded all expectations!"), name: t("أحمد الشريف", "Ahmed El-Sherif"), role: t("صاحب بزنس", "Business Owner"), country: "🇪🇬" },
-              { text: t("نظام OA REACH وفّر لنا وقتًا ومجهودًا كبيرًا في إدارة العملاء عبر المنصات المختلفة.", "OA REACH saved us tremendous time managing clients across platforms."), name: t("سيد الصيفي", "Sayed El-Seify"), role: t("مدير تسويق", "Marketing Director"), country: "🇸🇦" },
-              { text: t("فريق محترف وسريع الاستجابة. شغلهم في الموشن جرافيك والمودريتور مختلف تمامًا.", "Professional & responsive team. Their motion graphics & moderator work is truly different."), name: t("مريم الحربي", "Mariam Al-Harbi"), role: t("رائدة أعمال", "Entrepreneur"), country: "🇸🇦" },
+              { text: t("O.A Group غيّرت شكل البراند بتاعنا بالكامل. نتائج الحملات كانت فوق كل التوقعات!", "O.A Group completely transformed our brand. Campaign results exceeded all expectations!"), name: t("أحمد الشريف", "Michael Roberts"), role: t("صاحب بزنس", "Business Owner"), country: t("🇪🇬", "🇬🇧") },
+              { text: t("نظام OA REACH وفّر لنا وقتًا ومجهودًا كبيرًا في إدارة العملاء عبر المنصات المختلفة.", "OA REACH saved us tremendous time managing clients across every platform."), name: t("سيد الصيفي", "David Thompson"), role: t("مدير تسويق", "Marketing Director"), country: t("🇸🇦", "🇺🇸") },
+              { text: t("فريق محترف وسريع الاستجابة. شغلهم في الموشن جرافيك والمودريتور مختلف تمامًا.", "A professional & responsive team. Their motion graphics and moderator work is truly on another level."), name: t("مريم الحربي", "Sophie Laurent"), role: t("رائدة أعمال", "Entrepreneur"), country: t("🇸🇦", "🇫🇷") },
+              { text: t("التصوير والمونتاج بتاعهم رفع مستوى المحتوى بتاعنا بشكل واضح. الجودة سينمائية فعلاً.", "Their photography and editing raised our content to a whole new standard. Truly cinematic quality."), name: t("خالد المنصوري", "James Carter"), role: t("مدير علامة تجارية", "Brand Manager"), country: t("🇦🇪", "🇺🇸") },
+              { text: t("تعاملت مع وكالات كتير، بس الالتزام والاحترافية عند O.A Group حاجة تانية خالص.", "I've worked with many agencies, but O.A Group's commitment and professionalism are on another level entirely."), name: t("نورة القحطاني", "Emma Wilson"), role: t("مؤسِّسة مشروع", "Startup Founder"), country: t("🇸🇦", "🇬🇧") },
+              { text: t("من أول استشارة لحد تسليم الشغل، حسّيت إني مع شركاء حقيقيين مش مجرد مورّد خدمة.", "From the first consultation to final delivery, they felt like real partners, not just a service provider."), name: t("عمر الشيخ", "Daniel Meyer"), role: t("مدير تنفيذي", "CEO"), country: t("🇪🇬", "🇩🇪") },
             ].map((item, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.15 }}
                 className="group bg-gradient-to-b from-[#150D18] to-[#1A0E1E] border border-[#E8DFC0]/[0.05] rounded-2xl p-8 hover:border-[#E8DFC0]/10 transition-all duration-500">
@@ -451,7 +432,7 @@ export function HomePage() {
       </section>
 
       {/* ═══ CTA ═══ */}
-      <section className="py-24 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #2D1B30 0%, #1A0E1E 50%, #120A14 100%)" }}>
+      <section className="py-16 md:py-24 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #2D1B30 0%, #1A0E1E 50%, #120A14 100%)" }}>
         <motion.div animate={{ scale: [1, 1.1, 1], opacity: [0.04, 0.08, 0.04] }} transition={{ duration: 6, repeat: Infinity }}
           className="absolute inset-0 bg-[#6B4C8A] blur-[150px] rounded-full mx-auto w-1/2 h-full" />
         {/* Decorative lines */}

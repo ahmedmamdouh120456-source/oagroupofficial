@@ -17,7 +17,7 @@ const LangContext = createContext<LangContextType>({
 });
 
 export function LangProvider({ children }: { children: ReactNode }) {
-  const [lang, setLang] = useState<Lang>("ar");
+  const [lang, setLang] = useState<Lang>("en");
   const t = (ar: string, en: string) => (lang === "ar" ? ar : en);
   const dir = lang === "ar" ? "rtl" : "ltr";
   return (
