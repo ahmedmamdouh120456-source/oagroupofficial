@@ -107,16 +107,6 @@ export function HomePage() {
         <div
           className="relative z-10 max-w-7xl mx-auto px-6 w-full grid md:grid-cols-2 gap-12 md:gap-16 items-center pt-28 md:pt-32 pb-20 md:pb-20">
           <div>
-            {/* Badge */}
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-3 px-5 py-2 rounded-full border border-[#E8DFC0]/15 bg-[#E8DFC0]/[0.03] mb-10">
-              <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-400" />
-              </span>
-              <span className="text-xs tracking-[0.2em] text-[#E8DFC0]/40" style={{ fontFamily: "'JetBrains Mono', monospace" }}>{t("شركة عالمية", "INTERNATIONAL COMPANY")}</span>
-            </motion.div>
-
             {/* Main headline */}
             <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.2 }}
               style={{ fontFamily: font, fontWeight: 900, fontSize: "clamp(2.8rem, 6vw, 4.5rem)", lineHeight: 1.1 }}>
@@ -174,7 +164,7 @@ export function HomePage() {
                 {t("اكتشف خدماتنا", "Discover Our Services")}
                 <Arrow className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
-              <button onClick={() => setShowVideo(true)}
+              <button onClick={() => document.getElementById("showreel")?.scrollIntoView({ behavior: "smooth", block: "center" })}
                 className="group px-7 py-3.5 border border-[#6B4C8A]/50 text-[#A87FC4] rounded-xl hover:bg-[#6B4C8A]/10 transition-all duration-300 flex items-center gap-2"
                 style={{ fontFamily: font, fontWeight: 700 }}>
                 <Play className="w-4 h-4 group-hover:scale-110 transition-transform" fill="currentColor" />
@@ -231,7 +221,7 @@ export function HomePage() {
       </section>
 
       {/* ═══ VIDEO SHOWREEL SECTION ═══ */}
-      <section className="py-16 md:py-24 relative overflow-hidden" style={{ background: "linear-gradient(180deg, #120A14 0%, #1A0E1E 50%, #150D18 100%)" }}>
+      <section id="showreel" className="py-16 md:py-24 relative overflow-hidden scroll-mt-24" style={{ background: "linear-gradient(180deg, #120A14 0%, #1A0E1E 50%, #150D18 100%)" }}>
         <div className="max-w-5xl mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             className="text-center mb-12">
@@ -359,11 +349,10 @@ export function HomePage() {
                   { name: t("المتحدة للأخشاب", "Al Motaheda Wood"), logo: motahedaLogo },
                   { name: t("وود مارولا", "Wood Marola"), logo: marolaLogo },
                   { name: t("G3A — عبد الله قدري", "G3A — Abdullah Kadry"), logo: g3aLogo },
-                  { name: t("دي بير", "De Beer Refinish"), logo: debeerLogo },
                 ].map((c, i) => (
-                  <div key={`${set}-${i}`} title={c.name} className="flex-shrink-0 h-16 w-40 ms-14 flex items-center justify-center">
+                  <div key={`${set}-${i}`} title={c.name} className={`flex-shrink-0 h-20 w-40 flex items-center justify-center ${c.logo === ejazaLogo ? "ms-24" : "ms-14"}`}>
                     <img src={c.logo} alt={c.name}
-                      className="h-10 w-auto max-w-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300" />
+                      className={`w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300 ${c.logo === morshedLogo ? "max-h-[72px] max-w-[190px] translate-y-2" : c.logo === g3aLogo ? "max-h-[68px] max-w-[180px]" : "max-h-14 max-w-[150px]"}`} />
                   </div>
                 ))
               ))}
