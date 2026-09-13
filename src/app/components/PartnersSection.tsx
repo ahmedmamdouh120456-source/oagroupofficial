@@ -30,7 +30,7 @@ export function PartnersSection() {
   const font = lang === "ar" ? "'Cairo', sans-serif" : "'DM Sans', sans-serif";
 
   return (
-    <section className="py-24 relative" style={{ background: "#150D18" }}>
+    <section className="py-24 relative" style={{ background: "#1D1322" }}>
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#6B4C8A]/20 to-transparent" />
       <div className="max-w-6xl mx-auto px-6">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-14">
@@ -48,7 +48,7 @@ export function PartnersSection() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
           {partners.map((p, i) => (
             <motion.div key={p.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
-              className="group flex flex-col items-center justify-center gap-4 py-10 rounded-2xl bg-gradient-to-b from-[#1A0E1E] to-[#150D18] border border-[#E8DFC0]/[0.06] hover:border-[#E8DFC0]/15 transition-all duration-500">
+              className="group flex flex-col items-center justify-center gap-4 py-10 rounded-2xl bg-gradient-to-b from-[#241631] to-[#1D1322] border border-[#E8DFC0]/[0.06] hover:border-[#E8DFC0]/15 transition-all duration-500">
               <div className="w-14 h-14 rounded-2xl flex items-center justify-center transition-transform duration-500 group-hover:scale-110 overflow-hidden"
                 style={{ background: `${p.color}14` }}>
                 {p.img ? (

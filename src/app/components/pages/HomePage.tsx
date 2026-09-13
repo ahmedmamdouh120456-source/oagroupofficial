@@ -93,7 +93,7 @@ export function HomePage() {
     <>
       {/* ═══ HERO ═══ */}
       <section ref={heroRef} className="relative min-h-screen flex items-center overflow-hidden"
-        style={{ background: "radial-gradient(ellipse at 60% 40%, #2D1B30 0%, #1A0E1E 50%, #120A14 100%)" }}>
+        style={{ background: "radial-gradient(ellipse at 60% 40%, #3A2540 0%, #241631 50%, #19101D 100%)" }}>
         {/* Static glow orbs (soft radial gradients — no filter cost) */}
         <div className="absolute top-1/3 left-1/4 w-[600px] h-[600px] rounded-full" style={{ background: "radial-gradient(circle, rgba(107,76,138,0.16), transparent 65%)" }} />
         <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] rounded-full" style={{ background: "radial-gradient(circle, rgba(201,168,76,0.09), transparent 65%)" }} />
@@ -159,7 +159,7 @@ export function HomePage() {
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.6 }}
               className="mt-10 flex flex-wrap gap-4">
               <Link to="/services"
-                className="group px-7 py-3.5 bg-gradient-to-r from-[#E8DFC0] to-[#C9A84C] text-[#1A0E1E] rounded-xl flex items-center gap-2 hover:shadow-[0_0_30px_rgba(232,223,192,0.2)] transition-all duration-500"
+                className="group px-7 py-3.5 bg-gradient-to-r from-[#E8DFC0] to-[#C9A84C] text-[#241631] rounded-xl flex items-center gap-2 hover:shadow-[0_0_30px_rgba(232,223,192,0.2)] transition-all duration-500"
                 style={{ fontFamily: font, fontWeight: 700 }}>
                 {t("اكتشف خدماتنا", "Discover Our Services")}
                 <Arrow className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -198,12 +198,12 @@ export function HomePage() {
             <img src={characterImg} alt="OA Group" className="relative z-10 w-full max-w-lg rounded-3xl border border-[#E8DFC0]/15 ring-1 ring-[#C9A84C]/15 shadow-[0_30px_90px_rgba(0,0,0,0.55)]" />
             {/* Floating badges — very subtle float (~3%) */}
             <motion.div animate={{ y: [0, -4, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute top-6 md:top-8 start-1 md:-start-6 z-20 px-3 md:px-4 py-1.5 md:py-2 rounded-xl bg-[#1A0E1E] border border-[#E8DFC0]/10 flex items-center gap-2">
+              className="absolute top-6 md:top-8 start-1 md:-start-6 z-20 px-3 md:px-4 py-1.5 md:py-2 rounded-xl bg-[#241631] border border-[#E8DFC0]/10 flex items-center gap-2">
               <Sparkles className="w-4 h-4 text-[#C9A84C]" />
               <span className="text-[#E8DFC0] text-xs" style={{ fontFamily: "'JetBrains Mono', monospace" }}>{t("إبداع بلا حدود", "CREATIVE STUDIO")}</span>
             </motion.div>
             <motion.div animate={{ y: [0, 4, 0] }} transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-              className="absolute bottom-10 md:bottom-12 end-1 md:-end-6 z-20 px-3 md:px-4 py-1.5 md:py-2 rounded-xl bg-[#1A0E1E] border border-[#6B4C8A]/20 flex items-center gap-2">
+              className="absolute bottom-10 md:bottom-12 end-1 md:-end-6 z-20 px-3 md:px-4 py-1.5 md:py-2 rounded-xl bg-[#241631] border border-[#6B4C8A]/20 flex items-center gap-2">
               <Zap className="w-4 h-4 text-[#A87FC4]" />
               <span className="text-[#E8DFC0] text-xs" style={{ fontFamily: "'JetBrains Mono', monospace" }}>OA REACH</span>
             </motion.div>
@@ -221,7 +221,7 @@ export function HomePage() {
       </section>
 
       {/* ═══ VIDEO SHOWREEL SECTION ═══ */}
-      <section id="showreel" className="py-16 md:py-24 relative overflow-hidden scroll-mt-24" style={{ background: "linear-gradient(180deg, #120A14 0%, #1A0E1E 50%, #150D18 100%)" }}>
+      <section id="showreel" className="py-16 md:py-24 relative overflow-hidden scroll-mt-24" style={{ background: "linear-gradient(180deg, #19101D 0%, #241631 50%, #1D1322 100%)" }}>
         <div className="max-w-5xl mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             className="text-center mb-12">
@@ -269,7 +269,7 @@ export function HomePage() {
       </section>
 
       {/* ═══ SERVICES PREVIEW ═══ */}
-      <section className="py-16 md:py-28 relative" style={{ background: "#150D18" }}>
+      <section className="py-16 md:py-28 relative" style={{ background: "#1D1322" }}>
         {/* Background glow */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full" style={{ background: "radial-gradient(circle, rgba(107,76,138,0.08), transparent 65%)" }} />
         
@@ -296,7 +296,7 @@ export function HomePage() {
               { num: "05", icon: Video, span: "lg:col-span-2", title: t("التصوير والمونتاج", "Photography & Editing"), desc: t("تصوير احترافي للمنتجات والفعاليات، ومونتاج فيديو بتصحيح ألوان ومؤثرات", "Professional product & event shooting, plus video editing with color grading & effects"), tags: [t("تصوير", "Photo"), t("مونتاج", "Editing"), t("ألوان", "Grading")], color: "#A87FC4" },
             ].map((s, i) => (
               <motion.div key={s.num} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08, duration: 0.5 }}
-                className={`${s.span} group relative bg-[#150D18] rounded-2xl p-7 md:p-8 overflow-hidden transition-transform duration-300 hover:-translate-y-1`}
+                className={`${s.span} group relative bg-[#1D1322] rounded-2xl p-7 md:p-8 overflow-hidden transition-transform duration-300 hover:-translate-y-1`}
                 style={{ border: "1px solid rgba(232,223,192,0.07)" }}>
                 {/* Top accent line in the card's own color */}
                 <div className="absolute top-0 start-0 h-[3px] w-16 rounded-full" style={{ background: `linear-gradient(90deg, ${s.color}, transparent)` }} />
@@ -325,7 +325,7 @@ export function HomePage() {
       </section>
 
       {/* ═══ REAL CLIENTS ═══ */}
-      <section className="py-16 md:py-28 relative" style={{ background: "#1A0E1E" }}>
+      <section className="py-16 md:py-28 relative" style={{ background: "#241631" }}>
         <div className="max-w-7xl mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-6">
             <span className="text-[#C9A84C]/40 tracking-[0.2em] text-xs mb-4 block" style={{ fontFamily: "'JetBrains Mono', monospace" }}>
@@ -338,8 +338,8 @@ export function HomePage() {
 
           {/* Client Logos Marquee */}
           <div className="relative overflow-hidden mb-14">
-            <div className="absolute start-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: "linear-gradient(to right, #1A0E1E, transparent)" }} />
-            <div className="absolute end-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: "linear-gradient(to left, #1A0E1E, transparent)" }} />
+            <div className="absolute start-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: "linear-gradient(to right, #241631, transparent)" }} />
+            <div className="absolute end-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: "linear-gradient(to left, #241631, transparent)" }} />
             <div className="flex w-max items-center" style={{ animation: "marquee 40s linear infinite" }}>
               {[0, 1].map((set) => (
                 [
@@ -383,7 +383,7 @@ export function HomePage() {
       </section>
 
       {/* ═══ CTA ═══ */}
-      <section className="py-16 md:py-24 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #2D1B30 0%, #1A0E1E 50%, #120A14 100%)" }}>
+      <section className="py-16 md:py-24 relative overflow-hidden" style={{ background: "linear-gradient(135deg, #3A2540 0%, #241631 50%, #19101D 100%)" }}>
         <div className="absolute inset-0 mx-auto w-1/2 h-full rounded-full" style={{ background: "radial-gradient(circle, rgba(107,76,138,0.10), transparent 65%)" }} />
         {/* Decorative lines */}
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#6B4C8A]/20 to-transparent" />
@@ -404,7 +404,7 @@ export function HomePage() {
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             className="flex flex-wrap gap-4 justify-center">
             <Link to="/contact"
-              className="group px-8 py-3.5 bg-gradient-to-r from-[#E8DFC0] to-[#C9A84C] text-[#1A0E1E] rounded-xl hover:shadow-[0_0_40px_rgba(232,223,192,0.15)] transition-all duration-500 flex items-center gap-2"
+              className="group px-8 py-3.5 bg-gradient-to-r from-[#E8DFC0] to-[#C9A84C] text-[#241631] rounded-xl hover:shadow-[0_0_40px_rgba(232,223,192,0.15)] transition-all duration-500 flex items-center gap-2"
               style={{ fontFamily: font, fontWeight: 700 }}>
               {t("تواصل معنا الآن", "Contact Us Now")}
               <Arrow className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -435,7 +435,7 @@ export function HomePage() {
                   {t("إغلاق", "Close")} ✕
                 </button>
               </div>
-              <div className="rounded-2xl overflow-hidden border border-white/10 bg-[#1A0E1E] p-10 flex flex-col items-center gap-6">
+              <div className="rounded-2xl overflow-hidden border border-white/10 bg-[#241631] p-10 flex flex-col items-center gap-6">
                 {/* Decorative circles */}
                 <div className="relative w-28 h-28">
                   <motion.div animate={{ rotate: 360 }} transition={{ duration: 20, repeat: Infinity, ease: "linear" }}

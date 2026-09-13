@@ -28,7 +28,7 @@ export function GlobalPresencePage() {
   return (
     <div className="pt-24">
       {/* ═══ HERO ═══ */}
-      <section className="relative py-20 md:py-32 overflow-hidden" style={{ background: "radial-gradient(ellipse at 50% 30%, #2D1B30 0%, #1A0E1E 55%, #120A14 100%)" }}>
+      <section className="relative py-20 md:py-32 overflow-hidden" style={{ background: "radial-gradient(ellipse at 50% 30%, #3A2540 0%, #241631 55%, #19101D 100%)" }}>
         {/* Grid lines */}
         <div className="absolute inset-0 opacity-[0.02]" style={{
           backgroundImage: "linear-gradient(rgba(232,223,192,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(232,223,192,0.3) 1px, transparent 1px)",
@@ -68,7 +68,7 @@ export function GlobalPresencePage() {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7 }}
             className="mt-10">
             <a href="#siffah"
-              className="inline-flex items-center gap-3 px-8 md:px-10 py-4 rounded-xl bg-gradient-to-r from-[#E8DFC0] to-[#D4C9A8] text-[#1A0E1E] transition-all hover:scale-105"
+              className="inline-flex items-center gap-3 px-8 md:px-10 py-4 rounded-xl bg-gradient-to-r from-[#E8DFC0] to-[#D4C9A8] text-[#241631] transition-all hover:scale-105"
               style={{ fontFamily: font, fontWeight: 800, fontSize: "1.05rem" }}>
               {t("اكتشف أعمالنا الدولية", "Explore Our International Work")} <Arrow className="w-5 h-5" />
             </a>
@@ -77,7 +77,7 @@ export function GlobalPresencePage() {
       </section>
 
       {/* ═══ SIFFAH ═══ */}
-      <section id="siffah" className="py-16 md:py-28 relative overflow-hidden" style={{ background: "#1A0E1E" }}>
+      <section id="siffah" className="py-16 md:py-28 relative overflow-hidden" style={{ background: "#241631" }}>
         <div className="absolute top-1/4 end-0 w-[500px] h-[400px] bg-[#C9A84C] opacity-[0.04] blur-[160px] rounded-full" />
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
@@ -121,7 +121,7 @@ export function GlobalPresencePage() {
 
               <div>
                 <a href="https://siffah.com/" target="_blank" rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 px-8 py-3.5 rounded-xl bg-[#E8DFC0] text-[#1A0E1E] transition-all hover:scale-105 hover:bg-[#D4C9A8]"
+                  className="inline-flex items-center gap-3 px-8 py-3.5 rounded-xl bg-[#E8DFC0] text-[#241631] transition-all hover:scale-105 hover:bg-[#D4C9A8]"
                   style={{ fontFamily: font, fontWeight: 800 }}>
                   {t("زيارة Siffah", "Visit Siffah")} <ArrowUpRight className="w-5 h-5" />
                 </a>
@@ -133,9 +133,9 @@ export function GlobalPresencePage() {
               initial={{ opacity: 0, scale: 0.96 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.7 }}
               className="relative block group order-1 md:order-2 cursor-pointer">
               <div className="absolute -inset-4 bg-gradient-to-br from-[#C9A84C]/10 to-transparent blur-2xl rounded-3xl" />
-              <div className="relative rounded-2xl overflow-hidden border border-[#E8DFC0]/10 shadow-[0_30px_80px_rgba(0,0,0,0.5)] bg-[#150D18] transition-all duration-500 group-hover:scale-[1.02] group-hover:border-[#C9A84C]/30">
+              <div className="relative rounded-2xl overflow-hidden border border-[#E8DFC0]/10 shadow-[0_30px_80px_rgba(0,0,0,0.5)] bg-[#1D1322] transition-all duration-500 group-hover:scale-[1.02] group-hover:border-[#C9A84C]/30">
                 {/* Browser chrome */}
-                <div className="flex items-center gap-2 px-4 py-3 border-b border-[#E8DFC0]/[0.06] bg-[#120A14]">
+                <div className="flex items-center gap-2 px-4 py-3 border-b border-[#E8DFC0]/[0.06] bg-[#19101D]">
                   <span className="w-2.5 h-2.5 rounded-full bg-[#E8DFC0]/20" />
                   <span className="w-2.5 h-2.5 rounded-full bg-[#E8DFC0]/20" />
                   <span className="w-2.5 h-2.5 rounded-full bg-[#E8DFC0]/20" />
@@ -148,12 +148,12 @@ export function GlobalPresencePage() {
                   <img src={siffahPreview} alt={t("معاينة موقع Siffah", "Siffah website preview")} className="w-full block" />
                   <div className="pointer-events-none absolute inset-0" style={{ background: "linear-gradient(to top, rgba(21,13,24,0.55), transparent 45%)" }} />
                   {/* Location pin */}
-                  <div className="absolute bottom-4 start-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#120A14]/80 border border-[#C9A84C]/25 backdrop-blur-md">
+                  <div className="absolute bottom-4 start-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#19101D]/80 border border-[#C9A84C]/25 backdrop-blur-md">
                     <MapPin className="w-3.5 h-3.5 text-[#C9A84C]" />
                     <span className="text-[#E8DFC0]/80 text-xs" style={{ fontFamily: mono }}>{t("السعودية", "SAUDI ARABIA")}</span>
                   </div>
                   {/* Visit hint */}
-                  <div className="absolute bottom-4 end-4 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#E8DFC0] text-[#1A0E1E] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  <div className="absolute bottom-4 end-4 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#E8DFC0] text-[#241631] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                     style={{ fontFamily: font, fontWeight: 700 }}>
                     <span className="text-xs">{t("زيارة الموقع", "Visit Site")}</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />
@@ -247,7 +247,7 @@ export function GlobalPresencePage() {
       </section>
 
       {/* ═══ ECOSYSTEM ═══ */}
-      <section className="py-16 md:py-28 relative overflow-hidden" style={{ background: "#150D18" }}>
+      <section className="py-16 md:py-28 relative overflow-hidden" style={{ background: "#1D1322" }}>
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-[#6B4C8A] opacity-[0.04] blur-[150px] rounded-full" />
         <div className="max-w-6xl mx-auto px-6 relative z-10">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-16">
@@ -268,7 +268,7 @@ export function GlobalPresencePage() {
                 <motion.div key={n.key} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.15 }}
                   className="relative flex flex-col items-center text-center">
                   {/* Node */}
-                  <div className="relative w-full rounded-2xl border bg-[#1A0E1E] p-8 transition-all duration-500 hover:-translate-y-2"
+                  <div className="relative w-full rounded-2xl border bg-[#241631] p-8 transition-all duration-500 hover:-translate-y-2"
                     style={{ borderColor: `${n.color}25`, boxShadow: `0 20px 60px ${n.color}0a` }}>
                     <div className="w-14 h-14 mx-auto mb-5 rounded-full flex items-center justify-center"
                       style={{ background: `${n.color}12`, border: `1px solid ${n.color}30` }}>
@@ -277,7 +277,7 @@ export function GlobalPresencePage() {
                     <h3 className="text-[#E8DFC0] mb-2 tracking-[0.08em]" style={{ fontFamily: mono, fontWeight: 700, fontSize: "1.15rem" }}>{n.key}</h3>
                     <p className="text-[#E8DFC0]/40 text-sm" style={{ fontFamily: font }}>{n.desc}</p>
                     {i === 0 && (
-                      <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-[10px] tracking-[0.15em] bg-[#E8DFC0] text-[#1A0E1E]" style={{ fontFamily: mono, fontWeight: 700 }}>CORE</span>
+                      <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full text-[10px] tracking-[0.15em] bg-[#E8DFC0] text-[#241631]" style={{ fontFamily: mono, fontWeight: 700 }}>CORE</span>
                     )}
                   </div>
                 </motion.div>
@@ -288,7 +288,7 @@ export function GlobalPresencePage() {
       </section>
 
       {/* ═══ FINAL CTA ═══ */}
-      <section className="py-20 md:py-32 relative overflow-hidden" style={{ background: "radial-gradient(ellipse at 50% 50%, #2D1B30 0%, #1A0E1E 60%, #120A14 100%)" }}>
+      <section className="py-20 md:py-32 relative overflow-hidden" style={{ background: "radial-gradient(ellipse at 50% 50%, #3A2540 0%, #241631 60%, #19101D 100%)" }}>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#6B4C8A] opacity-[0.07] rounded-full blur-[180px]" />
         <div className="relative z-10 max-w-3xl mx-auto px-6 text-center">
           <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
@@ -306,7 +306,7 @@ export function GlobalPresencePage() {
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }}>
             <Link to="/contact"
-              className="inline-flex items-center gap-3 px-10 py-4 rounded-xl bg-gradient-to-r from-[#E8DFC0] to-[#D4C9A8] text-[#1A0E1E] transition-all hover:scale-105"
+              className="inline-flex items-center gap-3 px-10 py-4 rounded-xl bg-gradient-to-r from-[#E8DFC0] to-[#D4C9A8] text-[#241631] transition-all hover:scale-105"
               style={{ fontFamily: font, fontWeight: 800, fontSize: "1.1rem" }}>
               {t("ابدأ مشروعًا", "Start a Project")} <Arrow className="w-5 h-5" />
             </Link>
