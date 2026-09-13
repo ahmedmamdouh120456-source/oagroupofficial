@@ -124,8 +124,16 @@
     @apply border-border outline-ring/50;
   }
 
+  html,
   body {
-    @apply bg-background text-foreground;
+    max-width: 100%;
+    overflow-x: hidden;
+    background: #1A0E1E;
+    overscroll-behavior-x: none;
+  }
+
+  body {
+    @apply text-foreground;
   }
 
   /**

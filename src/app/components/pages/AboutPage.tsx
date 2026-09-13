@@ -20,13 +20,19 @@ export function AboutPage() {
     offset: ["start 75%", "end 60%"],
   });
   const fillOpacity = useTransform(timelineProgress, [0, 0.15], [0.35, 1]);
+  const lineColor = useTransform(timelineProgress, [0, 0.5, 1], ["#C9A84C", "#A87FC4", "#6B4C8A"]);
+  const lineGlow = useTransform(
+    timelineProgress,
+    [0, 0.5, 1],
+    ["0 0 14px rgba(201,168,76,0.65)", "0 0 14px rgba(168,127,196,0.65)", "0 0 14px rgba(107,76,138,0.65)"]
+  );
 
   const timeline = [
     { year: "2019", title: t("البداية — وُلد الحلم", "The Beginning — A Dream Was Born"), desc: t("تأسست O.A Group كفكرة بسيطة بين مجموعة من الشباب الطموح الذين يملكون شغفًا حقيقيًا بالتسويق الرقمي.", "O.A Group was founded as a simple idea among ambitious young people passionate about digital marketing."), icon: <Calendar className="w-5 h-5" />, color: "#E8DFC0" },
     { year: "2020", title: t("البناء — تأسيس القاعدة", "Building — Laying the Foundation"), desc: t("في خضم جائحة كورونا بنينا أنظمتنا الداخلية وطوّرنا مهاراتنا وبدأنا العمل مع أولى مجموعات عملائنا.", "During COVID-19 we built our systems, developed skills, and started with our first clients."), icon: <Zap className="w-5 h-5" />, color: "#6B4C8A" },
     { year: "2021", title: t("الظهور — خرجنا إلى النور", "The Emergence — We Came to Light"), desc: t("ظهرنا رسميًا بهوية بصرية متكاملة وحملات إعلانية كبيرة وتجاوزنا حاجز ٥٠ عميلًا.", "We emerged with a complete identity, major campaigns, and surpassed 50 clients."), icon: <Eye className="w-5 h-5" />, color: "#C9A84C" },
     { year: "2022–2023", title: t("التوسع — أسواق جديدة", "Expansion — New Markets"), desc: t("انطلقنا من مصر إلى السعودية. أطلقنا نظام OA REACH الذي غيّر قواعد اللعبة.", "We expanded from Egypt to Saudi Arabia. We launched OA REACH."), icon: <TrendingUp className="w-5 h-5" />, color: "#A87FC4" },
-    { year: "2024–2026", title: t("الحاضر — لم نتوقف بعد", "The Present — We Haven't Stopped"), desc: t("اليوم O.A Group شريك نجاح لأكثر من ٥٠ عميل في ٣ دول مع فريق متكامل.", "Today O.A Group is a success partner for 50+ clients across 3 countries."), icon: <Rocket className="w-5 h-5" />, color: "#E8DFC0" },
+    { year: "2024–2026", title: t("الحاضر — لم نتوقف بعد", "The Present — We Haven't Stopped"), desc: t("اليوم O.A Group شريك نجاح لأكثر من ٥٠ عميل في دولتين مع فريق متكامل.", "Today O.A Group is a success partner for 50+ clients across 2 countries."), icon: <Rocket className="w-5 h-5" />, color: "#E8DFC0" },
   ];
 
   const values = [
@@ -75,7 +81,7 @@ export function AboutPage() {
                 {[
                   { num: "2019", label: t("سنة التأسيس", "Year Founded") },
                   { num: "50+", label: t("عميل", "Clients") },
-                  { num: "3", label: t("دول", "Countries") },
+                  { num: "2", label: t("دول", "Countries") },
                 ].map((s) => (
                   <div key={s.label} className="p-4 rounded-xl bg-[#E8DFC0]/[0.02] border border-[#E8DFC0]/[0.06] text-center">
                     <div className="text-[#E8DFC0]" style={{ fontFamily: mono, fontWeight: 700, fontSize: "1.5rem" }}>{s.num}</div>
@@ -137,15 +143,15 @@ export function AboutPage() {
             </h2>
           </motion.div>
 
-          <div className="relative" ref={timelineRef}>
+          <div className="relative" ref={timelineRef} style={{ position: "relative" }}>
             {/* Center line */}
             <div className="absolute top-0 bottom-0 start-6 md:start-1/2 w-[2px] md:-translate-x-px overflow-hidden rounded-full">
               {/* Faint track */}
               <div className="absolute inset-0 bg-[#E8DFC0]/[0.06]" />
               {/* Scroll-linked progress fill */}
               <motion.div
-                className="absolute top-0 left-0 w-full h-full origin-top rounded-full bg-gradient-to-b from-[#C9A84C] via-[#A87FC4] to-[#6B4C8A] shadow-[0_0_12px_rgba(201,168,76,0.5)]"
-                style={{ scaleY: timelineProgress, opacity: fillOpacity }}
+                className="absolute top-0 left-0 w-full h-full origin-top rounded-full"
+                style={{ scaleY: timelineProgress, opacity: fillOpacity, backgroundColor: lineColor, boxShadow: lineGlow }}
               />
             </div>
 
@@ -186,19 +192,28 @@ export function AboutPage() {
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 gap-5 md:gap-6">
             {values.map((v, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
-                className="group text-center p-8 rounded-2xl bg-[#120A14] border border-[#E8DFC0]/[0.04] hover:border-[#E8DFC0]/12 transition-all duration-500 hover:-translate-y-2 relative overflow-hidden">
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
-                  style={{ background: `radial-gradient(circle at 50% 0%, ${v.color}08, transparent 70%)` }} />
-                <div className="relative z-10">
-                  <div className="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-5"
-                    style={{ background: `${v.color}10`, border: `1px solid ${v.color}20`, color: v.color }}>
+              <motion.div key={i} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}
+                className="group relative overflow-hidden rounded-2xl bg-[#120A14] border border-[#E8DFC0]/[0.06] hover:border-[#E8DFC0]/15 transition-colors duration-500 p-7 md:p-8">
+                {/* start accent bar */}
+                <div className="absolute top-0 bottom-0 start-0 w-[3px] transition-all duration-500 group-hover:w-[5px]"
+                  style={{ background: `linear-gradient(180deg, ${v.color}, transparent)` }} />
+                {/* big ghost index */}
+                <span className="absolute top-4 end-6 leading-none select-none pointer-events-none transition-opacity duration-500 opacity-[0.05] group-hover:opacity-[0.12]"
+                  style={{ fontFamily: mono, fontWeight: 800, fontSize: "3.5rem", color: v.color }}>
+                  0{i + 1}
+                </span>
+
+                <div className="relative z-10 flex items-start gap-5">
+                  <div className="w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0 transition-transform duration-500 group-hover:scale-110"
+                    style={{ background: `${v.color}12`, border: `1px solid ${v.color}25`, color: v.color, boxShadow: `0 8px 24px ${v.color}12` }}>
                     {v.icon}
                   </div>
-                  <h3 className="text-[#E8DFC0] mb-2" style={{ fontFamily: font, fontWeight: 800 }}>{v.title}</h3>
-                  <p className="text-[#E8DFC0]/30 text-sm" style={{ fontFamily: font }}>{v.desc}</p>
+                  <div className="pt-1">
+                    <h3 className="text-[#E8DFC0] mb-2" style={{ fontFamily: font, fontWeight: 800, fontSize: "1.15rem" }}>{v.title}</h3>
+                    <p className="text-[#E8DFC0]/40 text-sm leading-relaxed" style={{ fontFamily: font }}>{v.desc}</p>
+                  </div>
                 </div>
               </motion.div>
             ))}

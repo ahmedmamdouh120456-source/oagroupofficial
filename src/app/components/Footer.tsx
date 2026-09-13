@@ -48,7 +48,6 @@ export function Footer() {
                 { to: "/", label: t("الرئيسية", "Home") },
                 { to: "/about", label: t("من نحن", "About Us") },
                 { to: "/services", label: t("خدماتنا", "Our Services") },
-                { to: "/oa-reach", label: "OA REACH" },
                 { to: "/works", label: t("أعمالنا", "Our Work") },
                 { to: "/global-presence", label: t("حضورنا العالمي", "Global Presence") },
                 { to: "/contact", label: t("تواصل معنا", "Contact Us") },
@@ -67,7 +66,6 @@ export function Footer() {
               <p style={{ fontFamily: font }}>{t("البرمجة والتقنية", "Development & Tech")}</p>
               <p style={{ fontFamily: font }}>{t("خدمة المودريتور", "Moderator Service")}</p>
               <p style={{ fontFamily: font }}>{t("التصوير والمونتاج", "Photography & Editing")}</p>
-              <p style={{ fontFamily: font }}>OA REACH</p>
             </div>
           </div>
 

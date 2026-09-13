@@ -7,9 +7,9 @@ import { LangProvider, useLang } from "./LanguageContext";
 function LayoutInner() {
   const { dir } = useLang();
   return (
-    <div className="min-h-screen flex flex-col" dir={dir} style={{ background: "#1A0E1E", fontFamily: "'Cairo', sans-serif" }}>
+    <div className="min-h-screen flex flex-col w-full max-w-full overflow-x-hidden" dir={dir} style={{ background: "#1A0E1E", fontFamily: "'Cairo', sans-serif" }}>
       <Navbar />
-      <main className="flex-1">
+      <main className="flex-1 w-full max-w-full overflow-x-hidden">
         <Outlet />
       </main>
       <Footer />
