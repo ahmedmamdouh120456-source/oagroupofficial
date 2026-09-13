@@ -83,7 +83,7 @@ export function ServicesPage() {
 
   return (
     <div className="pt-24">
-      <section className="py-20" style={{ background: "radial-gradient(ellipse at 50% 20%, #3A2540 0%, #241631 60%)" }}>
+      <section className="py-20" style={{ background: "radial-gradient(ellipse at 50% 20%, #2D1B30 0%, #1A0E1E 60%)" }}>
         <div className="max-w-7xl mx-auto px-6">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-20">
             <span className="text-[#E8DFC0]/30 tracking-[0.2em] text-xs mb-4 block" style={{ fontFamily: "'JetBrains Mono', monospace" }}>
@@ -118,7 +118,7 @@ export function ServicesPage() {
                   </Link>
                 </div>
                 <div className={`${i % 2 === 1 ? "md:order-1" : ""}`}>
-                  <div className="bg-[#1D1322] border border-[#E8DFC0]/5 rounded-2xl p-8 space-y-4">
+                  <div className="bg-[#150D18] border border-[#E8DFC0]/5 rounded-2xl p-8 space-y-4">
                     {s.items.map((item, j) => (
                       <motion.div key={j} initial={{ opacity: 0, x: lang === "ar" ? 20 : -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: j * 0.08 }}
                         className="flex items-center gap-3">
@@ -136,7 +136,7 @@ export function ServicesPage() {
       </section>
 
       {/* Process */}
-      <section className="py-16 md:py-24" style={{ background: "#1D1322" }}>
+      <section className="py-16 md:py-24" style={{ background: "#150D18" }}>
         <div className="max-w-5xl mx-auto px-6">
           <motion.h2 initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
             className="text-[#E8DFC0] text-center mb-16" style={{ fontFamily: font, fontWeight: 900, fontSize: "clamp(1.6rem, 4vw, 2rem)" }}>
@@ -150,7 +150,7 @@ export function ServicesPage() {
               { step: "04", title: t("نطوّر", "We Optimize"), desc: t("نحلل النتائج ونطور الأداء باستمرار", "We analyze results and continuously improve performance") },
             ].map((p, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
-                className="text-center p-6 rounded-2xl bg-[#241631] border border-[#E8DFC0]/5">
+                className="text-center p-6 rounded-2xl bg-[#1A0E1E] border border-[#E8DFC0]/5">
                 <span className="text-[#E8DFC0]/10 block mb-3" style={{ fontFamily: "'JetBrains Mono', monospace", fontWeight: 700, fontSize: "2rem" }}>{p.step}</span>
                 <h3 className="text-[#E8DFC0] mb-2" style={{ fontFamily: font, fontWeight: 800 }}>{p.title}</h3>
                 <p className="text-[#E8DFC0]/30 text-sm" style={{ fontFamily: font }}>{p.desc}</p>

@@ -23,14 +23,14 @@ export function Footer() {
   ];
 
   return (
-    <footer className="relative pt-16 pb-6" style={{ background: "#19101D", borderTop: "1px solid rgba(228,223,192,0.08)" }}>
+    <footer className="relative pt-16 pb-6" style={{ background: "#120A14", borderTop: "1px solid rgba(228,223,192,0.08)" }}>
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#E8DFC0]/20 to-transparent" />
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-4 gap-10 mb-12">
           {/* Brand */}
           <div className="md:col-span-1">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-lg overflow-hidden bg-[#241631] p-0.5 border border-[#E8DFC0]/15">
+              <div className="w-10 h-10 rounded-lg overflow-hidden bg-[#1A0E1E] p-0.5 border border-[#E8DFC0]/15">
                 <img src={logoImg} alt="O.A Group" className="w-full h-full rounded-md object-cover" />
               </div>
               <span className="text-[#E8DFC0] tracking-[0.15em]" style={{ fontFamily: "'DM Sans', sans-serif", fontWeight: 700 }}>O.A GROUP</span>

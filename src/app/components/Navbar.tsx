@@ -32,10 +32,10 @@ export function Navbar() {
   const isActive = (to: string) => location.pathname === to;
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "bg-[#241631]/95 border-b border-[#D4C9A8]/10" : "bg-transparent"}`}>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "bg-[#1A0E1E]/95 border-b border-[#D4C9A8]/10" : "bg-transparent"}`}>
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3">
-          <div className="w-11 h-11 rounded-xl overflow-hidden bg-[#241631] p-0.5 border border-[#E8DFC0]/15">
+          <div className="w-11 h-11 rounded-xl overflow-hidden bg-[#1A0E1E] p-0.5 border border-[#E8DFC0]/15">
             <img src={logoImg} alt="O.A Group" className="w-full h-full rounded-lg object-cover" />
           </div>
           <div>
@@ -64,7 +64,7 @@ export function Navbar() {
             {lang === "ar" ? "EN" : "عربي"}
           </button>
           <Link to="/contact"
-            className="px-5 py-2 bg-[#E8DFC0] text-[#241631] rounded-lg hover:bg-[#D4C9A8] transition-all text-sm"
+            className="px-5 py-2 bg-[#E8DFC0] text-[#1A0E1E] rounded-lg hover:bg-[#D4C9A8] transition-all text-sm"
             style={{ fontFamily: lang === "ar" ? "'Cairo', sans-serif" : "'DM Sans', sans-serif", fontWeight: 700 }}>
             {t("ابدأ الآن", "Start Now")}
           </Link>
@@ -78,7 +78,7 @@ export function Navbar() {
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="lg:hidden bg-[#241631] border-t border-[#E8DFC0]/10 px-6 py-6 space-y-4">
+        <div className="lg:hidden bg-[#1A0E1E] border-t border-[#E8DFC0]/10 px-6 py-6 space-y-4">
           {links.map((l) => (
             <Link key={l.to} to={l.to}
               className={`block text-sm py-2 ${isActive(l.to) ? "text-[#E8DFC0]" : "text-[#E8DFC0]/50"}`}

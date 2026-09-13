@@ -1,20 +1,29 @@
-import { Outlet, ScrollRestoration } from "react-router";
+import { Outlet, useLocation } from "react-router";
+import { useEffect } from "react";
 import { Navbar } from "./Navbar";
 import { Footer } from "./Footer";
 import { WhatsAppFloat } from "./WhatsAppFloat";
 import { LangProvider, useLang } from "./LanguageContext";
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, [pathname]);
+  return null;
+}
+
 function LayoutInner() {
   const { dir } = useLang();
   return (
-    <div className="min-h-screen flex flex-col w-full max-w-full overflow-x-hidden" dir={dir} style={{ background: "#241631", fontFamily: "'Cairo', sans-serif" }}>
+    <div className="relative min-h-screen flex flex-col w-full max-w-full overflow-x-hidden" dir={dir} style={{ background: "#1A0E1E", fontFamily: "'Cairo', sans-serif" }}>
       <Navbar />
-      <main className="flex-1 w-full max-w-full overflow-x-hidden">
+      <main className="relative flex-1 w-full max-w-full overflow-x-hidden">
         <Outlet />
       </main>
       <Footer />
       <WhatsAppFloat />
-      <ScrollRestoration />
+      <ScrollToTop />
     </div>
   );
 }

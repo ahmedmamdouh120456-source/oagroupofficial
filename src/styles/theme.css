@@ -126,9 +126,10 @@
 
   html,
   body {
+    position: relative;
     max-width: 100%;
     overflow-x: hidden;
-    background: #241631;
+    background: #1A0E1E;
     overscroll-behavior-x: none;
   }
 

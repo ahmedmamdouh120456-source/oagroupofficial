@@ -51,7 +51,7 @@ export function ContactPage() {
   return (
     <div className="pt-24">
       {/* Header */}
-      <section className="py-16" style={{ background: "radial-gradient(ellipse at 50% 30%, #3A2540 0%, #241631 60%)" }}>
+      <section className="py-16" style={{ background: "radial-gradient(ellipse at 50% 30%, #2D1B30 0%, #1A0E1E 60%)" }}>
         <div className="max-w-3xl mx-auto px-6 text-center">
           <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
             className="text-[#E8DFC0] mb-4" style={{ fontFamily: font, fontWeight: 900, fontSize: "clamp(2rem, 4vw, 3rem)" }}>
@@ -65,12 +65,12 @@ export function ContactPage() {
       </section>
 
       {/* Contact Info Cards */}
-      <section className="py-12" style={{ background: "#1D1322" }}>
+      <section className="py-12" style={{ background: "#150D18" }}>
         <div className="max-w-5xl mx-auto px-6">
           <div className="grid md:grid-cols-3 gap-6 mb-16">
             {/* Email */}
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
-              className="bg-[#241631] border border-[#E8DFC0]/5 rounded-2xl p-6 text-center">
+              className="bg-[#1A0E1E] border border-[#E8DFC0]/5 rounded-2xl p-6 text-center">
               <div className="w-12 h-12 rounded-xl bg-[#E8DFC0]/5 flex items-center justify-center text-[#E8DFC0]/40 mx-auto mb-4">
                 <Mail className="w-6 h-6" />
               </div>
@@ -89,7 +89,7 @@ export function ContactPage() {
 
             {/* Phone */}
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
-              className="bg-[#241631] border border-[#E8DFC0]/5 rounded-2xl p-6 text-center">
+              className="bg-[#1A0E1E] border border-[#E8DFC0]/5 rounded-2xl p-6 text-center">
               <div className="w-12 h-12 rounded-xl bg-[#25D366]/10 flex items-center justify-center text-[#25D366]/60 mx-auto mb-4">
                 <Phone className="w-6 h-6" />
               </div>
@@ -101,7 +101,7 @@ export function ContactPage() {
 
             {/* Location */}
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}
-              className="bg-[#241631] border border-[#E8DFC0]/5 rounded-2xl p-6 text-center">
+              className="bg-[#1A0E1E] border border-[#E8DFC0]/5 rounded-2xl p-6 text-center">
               <div className="w-12 h-12 rounded-xl bg-[#6B4C8A]/10 flex items-center justify-center text-[#A87FC4]/60 mx-auto mb-4">
                 <MapPin className="w-6 h-6" />
               </div>
@@ -117,7 +117,7 @@ export function ContactPage() {
             {/* Contact Form */}
             <motion.form initial={{ opacity: 0, x: lang === "ar" ? 20 : -20 }} animate={{ opacity: 1, x: 0 }}
               onSubmit={handleSubmit}
-              className="bg-[#241631] border border-[#E8DFC0]/5 rounded-2xl p-8 space-y-5">
+              className="bg-[#1A0E1E] border border-[#E8DFC0]/5 rounded-2xl p-8 space-y-5">
               <h3 className="text-[#E8DFC0] mb-6" style={{ fontFamily: font, fontWeight: 800, fontSize: "1.2rem" }}>
                 {t("اترك بياناتك وسنتواصل معك", "Leave Your Details and We'll Reach Out")}
               </h3>
@@ -126,7 +126,7 @@ export function ContactPage() {
                 <User className="absolute start-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#E8DFC0]/20" />
                 <input type="text" required placeholder={t("الاسم الكامل *", "Full Name *")} value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full bg-[#1D1322] border border-[#E8DFC0]/10 rounded-xl px-10 py-3 text-[#E8DFC0] text-sm placeholder:text-[#E8DFC0]/20 focus:border-[#E8DFC0]/25 focus:outline-none transition-all"
+                  className="w-full bg-[#150D18] border border-[#E8DFC0]/10 rounded-xl px-10 py-3 text-[#E8DFC0] text-sm placeholder:text-[#E8DFC0]/20 focus:border-[#E8DFC0]/25 focus:outline-none transition-all"
                   style={{ fontFamily: font }} />
               </div>
 
@@ -134,7 +134,7 @@ export function ContactPage() {
                 <Phone className="absolute start-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#E8DFC0]/20" />
                 <input type="tel" required placeholder={t("رقم الهاتف *", "Phone Number *")} value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  className="w-full bg-[#1D1322] border border-[#E8DFC0]/10 rounded-xl px-10 py-3 text-[#E8DFC0] text-sm placeholder:text-[#E8DFC0]/20 focus:border-[#E8DFC0]/25 focus:outline-none transition-all"
+                  className="w-full bg-[#150D18] border border-[#E8DFC0]/10 rounded-xl px-10 py-3 text-[#E8DFC0] text-sm placeholder:text-[#E8DFC0]/20 focus:border-[#E8DFC0]/25 focus:outline-none transition-all"
                   style={{ fontFamily: font }} />
               </div>
 
@@ -142,26 +142,26 @@ export function ContactPage() {
                 <Mail className="absolute start-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#E8DFC0]/20" />
                 <input type="email" placeholder={t("البريد الإلكتروني (اختياري)", "Email Address (Optional)")} value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full bg-[#1D1322] border border-[#E8DFC0]/10 rounded-xl px-10 py-3 text-[#E8DFC0] text-sm placeholder:text-[#E8DFC0]/20 focus:border-[#E8DFC0]/25 focus:outline-none transition-all"
+                  className="w-full bg-[#150D18] border border-[#E8DFC0]/10 rounded-xl px-10 py-3 text-[#E8DFC0] text-sm placeholder:text-[#E8DFC0]/20 focus:border-[#E8DFC0]/25 focus:outline-none transition-all"
                   style={{ fontFamily: font }} />
               </div>
 
               <select value={formData.service} onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                className="w-full bg-[#1D1322] border border-[#E8DFC0]/10 rounded-xl px-4 py-3 text-[#E8DFC0] text-sm focus:border-[#E8DFC0]/25 focus:outline-none transition-all appearance-none"
+                className="w-full bg-[#150D18] border border-[#E8DFC0]/10 rounded-xl px-4 py-3 text-[#E8DFC0] text-sm focus:border-[#E8DFC0]/25 focus:outline-none transition-all appearance-none"
                 style={{ fontFamily: font }}>
-                <option value="" className="bg-[#1D1322]">{t("اختر الخدمة المطلوبة", "Select a Service")}</option>
+                <option value="" className="bg-[#150D18]">{t("اختر الخدمة المطلوبة", "Select a Service")}</option>
                 {services.map((s) => (
-                  <option key={s} value={s} className="bg-[#1D1322]">{s}</option>
+                  <option key={s} value={s} className="bg-[#150D18]">{s}</option>
                 ))}
               </select>
 
               <textarea placeholder={t("اكتب رسالتك أو تفاصيل مشروعك هنا...", "Write your message or project details here...")} value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                className="w-full bg-[#1D1322] border border-[#E8DFC0]/10 rounded-xl px-4 py-3 text-[#E8DFC0] text-sm placeholder:text-[#E8DFC0]/20 focus:border-[#E8DFC0]/25 focus:outline-none transition-all h-28 resize-none"
+                className="w-full bg-[#150D18] border border-[#E8DFC0]/10 rounded-xl px-4 py-3 text-[#E8DFC0] text-sm placeholder:text-[#E8DFC0]/20 focus:border-[#E8DFC0]/25 focus:outline-none transition-all h-28 resize-none"
                 style={{ fontFamily: font }} />
 
               <button type="submit" disabled={sending}
-                className="w-full py-3.5 bg-[#E8DFC0] text-[#241631] rounded-xl flex items-center justify-center gap-2 hover:bg-[#D4C9A8] transition-all disabled:opacity-50"
+                className="w-full py-3.5 bg-[#E8DFC0] text-[#1A0E1E] rounded-xl flex items-center justify-center gap-2 hover:bg-[#D4C9A8] transition-all disabled:opacity-50"
                 style={{ fontFamily: font, fontWeight: 700 }}>
                 {sending ? t("جارٍ الإرسال...", "Sending...") : t("إرسال الرسالة", "Send Message")} <Send className="w-4 h-4" />
               </button>
@@ -171,7 +171,7 @@ export function ContactPage() {
             <div className="space-y-6">
               {/* WhatsApp Card */}
               <motion.div initial={{ opacity: 0, x: lang === "ar" ? -20 : 20 }} animate={{ opacity: 1, x: 0 }}
-                className="bg-[#241631] border border-[#25D366]/15 rounded-2xl p-8 text-center">
+                className="bg-[#1A0E1E] border border-[#25D366]/15 rounded-2xl p-8 text-center">
                 <div className="w-20 h-20 rounded-2xl bg-[#25D366]/10 flex items-center justify-center mx-auto mb-6">
                   <MessageCircle className="w-10 h-10 text-[#25D366]" />
                 </div>
@@ -191,7 +191,7 @@ export function ContactPage() {
 
               {/* Email Direct */}
               <motion.div initial={{ opacity: 0, x: lang === "ar" ? -20 : 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.15 }}
-                className="bg-[#241631] border border-[#E8DFC0]/5 rounded-2xl p-6 text-center">
+                className="bg-[#1A0E1E] border border-[#E8DFC0]/5 rounded-2xl p-6 text-center">
                 <h3 className="text-[#E8DFC0] mb-4 text-sm" style={{ fontFamily: font, fontWeight: 700 }}>
                   {t("أو راسلنا عبر البريد الإلكتروني", "Or Email Us Directly")}
                 </h3>
@@ -204,7 +204,7 @@ export function ContactPage() {
 
               {/* Working hours */}
               <motion.div initial={{ opacity: 0, x: lang === "ar" ? -20 : 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.25 }}
-                className="bg-[#241631] border border-[#E8DFC0]/5 rounded-2xl p-6">
+                className="bg-[#1A0E1E] border border-[#E8DFC0]/5 rounded-2xl p-6">
                 <div className="flex items-center gap-3 mb-3">
                   <Clock className="w-5 h-5 text-[#E8DFC0]/30" />
                   <h3 className="text-[#E8DFC0] text-sm" style={{ fontFamily: font, fontWeight: 700 }}>{t("مواعيد العمل", "Working Hours")}</h3>
@@ -223,7 +223,7 @@ export function ContactPage() {
 
               {/* Social */}
               <motion.div initial={{ opacity: 0, x: lang === "ar" ? -20 : 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.35 }}
-                className="bg-[#241631] border border-[#E8DFC0]/5 rounded-2xl p-6">
+                className="bg-[#1A0E1E] border border-[#E8DFC0]/5 rounded-2xl p-6">
                 <h3 className="text-[#E8DFC0] text-sm mb-4" style={{ fontFamily: font, fontWeight: 700 }}>{t("تابعنا على منصات التواصل", "Follow Us on Social Media")}</h3>
                 <div className="flex items-center gap-3">
                   {[

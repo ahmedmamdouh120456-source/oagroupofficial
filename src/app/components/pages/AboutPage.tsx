@@ -45,7 +45,7 @@ export function AboutPage() {
   return (
     <div className="pt-24">
       {/* ═══ HERO ═══ */}
-      <section className="relative py-16 md:py-28 overflow-hidden" style={{ background: "radial-gradient(ellipse at 30% 40%, #3A2540 0%, #241631 60%)" }}>
+      <section className="relative py-16 md:py-28 overflow-hidden" style={{ background: "radial-gradient(ellipse at 30% 40%, #2D1B30 0%, #1A0E1E 60%)" }}>
         {/* Decorative elements */}
         <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: "linear-gradient(rgba(232,223,192,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(232,223,192,0.3) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
         <div className="absolute top-1/4 start-1/4 w-[500px] h-[500px] bg-[#6B4C8A] opacity-[0.06] rounded-full blur-[150px]" />
@@ -118,7 +118,7 @@ export function AboutPage() {
               </div>
               {/* Floating badge */}
               <motion.div animate={{ y: [0, -8, 0] }} transition={{ duration: 3, repeat: Infinity }}
-                className="absolute -bottom-4 start-1/2 -translate-x-1/2 z-20 px-5 py-3 rounded-xl bg-[#241631]/95 backdrop-blur-md border border-[#C9A84C]/20 flex items-center gap-3">
+                className="absolute -bottom-4 start-1/2 -translate-x-1/2 z-20 px-5 py-3 rounded-xl bg-[#1A0E1E]/95 backdrop-blur-md border border-[#C9A84C]/20 flex items-center gap-3">
                 <Award className="w-5 h-5 text-[#C9A84C]" />
                 <span className="text-[#E8DFC0] text-xs" style={{ fontFamily: mono, fontWeight: 700 }}>
                   {t("٥ سنوات خبرة", "5 Years Experience")}
@@ -130,7 +130,7 @@ export function AboutPage() {
       </section>
 
       {/* ═══ TIMELINE ═══ */}
-      <section className="py-16 md:py-28 relative" style={{ background: "#241631" }}>
+      <section className="py-16 md:py-28 relative" style={{ background: "#1A0E1E" }}>
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#6B4C8A]/15 to-transparent" />
 
         <div className="max-w-5xl mx-auto px-6">
@@ -161,14 +161,14 @@ export function AboutPage() {
                 {/* Node */}
                 <div className="absolute start-6 md:start-1/2 -translate-x-1/2 z-10">
                   <div className="w-12 h-12 rounded-full border-2 flex items-center justify-center"
-                    style={{ borderColor: `${item.color}40`, background: "#241631" }}>
+                    style={{ borderColor: `${item.color}40`, background: "#1A0E1E" }}>
                     <div style={{ color: item.color }}>{item.icon}</div>
                   </div>
                 </div>
 
                 {/* Content card */}
                 <div className={`ms-20 md:ms-0 md:w-[calc(50%-3rem)] ${i % 2 === 0 ? "md:text-end md:pe-8" : "md:text-start md:ps-8"}`}>
-                  <div className="p-6 rounded-2xl bg-[#1D1322] border border-[#E8DFC0]/[0.04] hover:border-[#E8DFC0]/10 transition-all duration-500">
+                  <div className="p-6 rounded-2xl bg-[#150D18] border border-[#E8DFC0]/[0.04] hover:border-[#E8DFC0]/10 transition-all duration-500">
                     <span className="text-xs tracking-[0.15em]" style={{ fontFamily: mono, fontWeight: 700, color: item.color }}>{item.year}</span>
                     <h3 className="text-[#E8DFC0] mt-2 mb-2" style={{ fontFamily: font, fontWeight: 800, fontSize: "1.1rem" }}>{item.title}</h3>
                     <p className="text-[#E8DFC0]/30 text-sm leading-relaxed" style={{ fontFamily: font }}>{item.desc}</p>
@@ -181,7 +181,7 @@ export function AboutPage() {
       </section>
 
       {/* ═══ VALUES ═══ */}
-      <section className="py-16 md:py-28 relative" style={{ background: "linear-gradient(180deg, #1D1322 0%, #241631 100%)" }}>
+      <section className="py-16 md:py-28 relative" style={{ background: "linear-gradient(180deg, #150D18 0%, #1A0E1E 100%)" }}>
         <div className="max-w-7xl mx-auto px-6">
           <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="text-center mb-16">
             <span className="text-[#C9A84C]/40 tracking-[0.2em] text-xs mb-4 block" style={{ fontFamily: mono }}>
@@ -192,28 +192,19 @@ export function AboutPage() {
             </h2>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-5 md:gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {values.map((v, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}
-                className="group relative overflow-hidden rounded-2xl bg-[#19101D] border border-[#E8DFC0]/[0.06] hover:border-[#E8DFC0]/15 transition-colors duration-500 p-7 md:p-8">
-                {/* start accent bar */}
-                <div className="absolute top-0 bottom-0 start-0 w-[3px] transition-all duration-500 group-hover:w-[5px]"
-                  style={{ background: `linear-gradient(180deg, ${v.color}, transparent)` }} />
-                {/* big ghost index */}
-                <span className="absolute top-4 end-6 leading-none select-none pointer-events-none transition-opacity duration-500 opacity-[0.05] group-hover:opacity-[0.12]"
-                  style={{ fontFamily: mono, fontWeight: 800, fontSize: "3.5rem", color: v.color }}>
-                  0{i + 1}
-                </span>
-
-                <div className="relative z-10 flex items-start gap-5">
-                  <div className="w-14 h-14 rounded-xl flex items-center justify-center flex-shrink-0 transition-transform duration-500 group-hover:scale-110"
-                    style={{ background: `${v.color}12`, border: `1px solid ${v.color}25`, color: v.color, boxShadow: `0 8px 24px ${v.color}12` }}>
+              <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
+                className="group text-center p-8 rounded-2xl bg-[#120A14] border border-[#E8DFC0]/[0.04] hover:border-[#E8DFC0]/12 transition-all duration-500 hover:-translate-y-2 relative overflow-hidden">
+                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+                  style={{ background: `radial-gradient(circle at 50% 0%, ${v.color}08, transparent 70%)` }} />
+                <div className="relative z-10">
+                  <div className="w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-5"
+                    style={{ background: `${v.color}10`, border: `1px solid ${v.color}20`, color: v.color }}>
                     {v.icon}
                   </div>
-                  <div className="pt-1">
-                    <h3 className="text-[#E8DFC0] mb-2" style={{ fontFamily: font, fontWeight: 800, fontSize: "1.15rem" }}>{v.title}</h3>
-                    <p className="text-[#E8DFC0]/40 text-sm leading-relaxed" style={{ fontFamily: font }}>{v.desc}</p>
-                  </div>
+                  <h3 className="text-[#E8DFC0] mb-2" style={{ fontFamily: font, fontWeight: 800 }}>{v.title}</h3>
+                  <p className="text-[#E8DFC0]/30 text-sm" style={{ fontFamily: font }}>{v.desc}</p>
                 </div>
               </motion.div>
             ))}
@@ -225,10 +216,10 @@ export function AboutPage() {
       <PartnersSection />
 
       {/* ═══ QUOTE ═══ */}
-      <section className="py-16 md:py-24 relative" style={{ background: "radial-gradient(ellipse at center, #3A2540 0%, #241631 70%)" }}>
+      <section className="py-16 md:py-24 relative" style={{ background: "radial-gradient(ellipse at center, #2D1B30 0%, #1A0E1E 70%)" }}>
         <div className="max-w-3xl mx-auto px-6 text-center">
           <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}>
-            <div className="w-16 h-16 rounded-2xl mx-auto mb-8 overflow-hidden bg-[#241631] p-0.5 border border-[#E8DFC0]/10">
+            <div className="w-16 h-16 rounded-2xl mx-auto mb-8 overflow-hidden bg-[#1A0E1E] p-0.5 border border-[#E8DFC0]/10">
               <img src={logoImg} alt="O.A Group" className="w-full h-full rounded-xl object-cover" />
             </div>
             <Sparkles className="w-6 h-6 text-[#C9A84C]/30 mx-auto mb-6" />

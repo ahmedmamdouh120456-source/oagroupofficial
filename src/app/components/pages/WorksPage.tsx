@@ -56,7 +56,7 @@ export function WorksPage() {
 
   return (
     <div className="pt-24">
-      <section className="py-20 min-h-screen" style={{ background: "radial-gradient(ellipse at 50% 20%, #3A2540 0%, #241631 60%)" }}>
+      <section className="py-20 min-h-screen" style={{ background: "radial-gradient(ellipse at 50% 20%, #2D1B30 0%, #1A0E1E 60%)" }}>
         <div className="max-w-7xl mx-auto px-6">
           {/* Header */}
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-16">
@@ -78,7 +78,7 @@ export function WorksPage() {
                 onClick={() => setFilter(c)}
                 className={`px-5 py-2 rounded-xl text-sm transition-all duration-300 ${
                   filter === c
-                    ? "bg-gradient-to-r from-[#E8DFC0] to-[#C9A84C] text-[#241631] shadow-[0_0_20px_rgba(232,223,192,0.1)]"
+                    ? "bg-gradient-to-r from-[#E8DFC0] to-[#C9A84C] text-[#1A0E1E] shadow-[0_0_20px_rgba(232,223,192,0.1)]"
                     : "bg-[#E8DFC0]/[0.03] text-[#E8DFC0]/35 border border-[#E8DFC0]/8 hover:border-[#E8DFC0]/15"
                 }`}
                 style={{ fontFamily: font, fontWeight: filter === c ? 700 : 400 }}>
@@ -97,14 +97,14 @@ export function WorksPage() {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.9 }}
                   transition={{ delay: i * 0.05, duration: 0.4 }}
-                  className="break-inside-avoid group relative rounded-2xl overflow-hidden border border-[#E8DFC0]/[0.04] hover:border-[#E8DFC0]/15 transition-all duration-500 cursor-pointer bg-[#19101D]"
+                  className="break-inside-avoid group relative rounded-2xl overflow-hidden border border-[#E8DFC0]/[0.04] hover:border-[#E8DFC0]/15 transition-all duration-500 cursor-pointer bg-[#120A14]"
                   onClick={() => setLightbox(i)}>
                   {/* Image */}
                   <div className="relative overflow-hidden">
                     <img src={p.img} alt={lang === "ar" ? p.title.ar : p.title.en}
                       className="w-full object-cover group-hover:scale-105 transition-transform duration-700" />
                     {/* Overlay on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#241631] via-[#241631]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-5">
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#1A0E1E] via-[#1A0E1E]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-5">
                       <div className="w-full">
                         <div className="flex items-center justify-between mb-2">
                           <span className="px-3 py-1 rounded-full text-[10px] tracking-wide backdrop-blur-md"
@@ -129,7 +129,7 @@ export function WorksPage() {
 
           {/* CTA */}
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            className="text-center mt-20 p-14 rounded-3xl bg-gradient-to-b from-[#1D1322] to-[#19101D] border border-[#E8DFC0]/[0.04] relative overflow-hidden">
+            className="text-center mt-20 p-14 rounded-3xl bg-gradient-to-b from-[#150D18] to-[#120A14] border border-[#E8DFC0]/[0.04] relative overflow-hidden">
             <div className="absolute inset-0 opacity-[0.03]">
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-[#6B4C8A] rounded-full blur-[100px]" />
             </div>
@@ -141,7 +141,7 @@ export function WorksPage() {
                 {t("كل تصميم عندنا بيبدأ من فهم عميق للبراند. تواصل معنا ونبدأ نشتغل.", "Every design starts from deep brand understanding. Contact us and let's get started.")}
               </p>
               <Link to="/contact"
-                className="group inline-flex items-center gap-2 px-8 py-3.5 bg-gradient-to-r from-[#E8DFC0] to-[#C9A84C] text-[#241631] rounded-xl hover:shadow-[0_0_30px_rgba(232,223,192,0.15)] transition-all duration-500"
+                className="group inline-flex items-center gap-2 px-8 py-3.5 bg-gradient-to-r from-[#E8DFC0] to-[#C9A84C] text-[#1A0E1E] rounded-xl hover:shadow-[0_0_30px_rgba(232,223,192,0.15)] transition-all duration-500"
                 style={{ fontFamily: font, fontWeight: 700 }}>
                 {t("تواصل معنا الآن", "Contact Us Now")}
                 <Arrow className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
