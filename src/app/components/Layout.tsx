@@ -7,23 +7,34 @@ import { LangProvider, useLang } from "./LanguageContext";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
+
   useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
   }, [pathname]);
+
   return null;
 }
 
 function LayoutInner() {
   const { dir } = useLang();
   return (
-    <div className="relative min-h-screen flex flex-col w-full max-w-full overflow-x-hidden" dir={dir} style={{ background: "#1A0E1E", fontFamily: "'Cairo', sans-serif" }}>
+    <div
+      className="relative min-h-screen flex flex-col w-full"
+      dir={dir}
+      style={{ background: "#1A0E1E", fontFamily: "'Cairo', sans-serif", overflowX: "clip" }}
+    >
+      <ScrollToTop />
       <Navbar />
-      <main className="relative flex-1 w-full max-w-full overflow-x-hidden">
+      <main className="flex-1 w-full">
         <Outlet />
       </main>
       <Footer />
       <WhatsAppFloat />
-      <ScrollToTop />
     </div>
   );
 }

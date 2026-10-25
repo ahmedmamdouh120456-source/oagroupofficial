@@ -7,6 +7,10 @@ import { WorksPage } from "./components/pages/WorksPage";
 import { ContactPage } from "./components/pages/ContactPage";
 import { GlobalPresencePage } from "./components/pages/GlobalPresencePage";
 
+if (typeof window !== "undefined" && "scrollRestoration" in window.history) {
+  window.history.scrollRestoration = "manual";
+}
+
 export const router = createBrowserRouter([
   {
     path: "/",

@@ -128,7 +128,8 @@
   body {
     position: relative;
     max-width: 100%;
-    overflow-x: hidden;
+    overflow-x: clip;
+    scroll-behavior: auto;
     background: #1A0E1E;
     overscroll-behavior-x: none;
   }
