@@ -47,7 +47,7 @@ Top Navigation:
 - Nav background: transparent → blur frosted glass on scroll
 
 Hero Content (centered, massive):
-- Overline tag: Small capsule badge reading "EGYPT · KSA · MENA" 
+- Overline tag: Small capsule badge reading "EGYPT · KSA"
   in monospace, with a pulsing green dot
 - Main headline (massive, 120px+):
   Line 1: "نكتب قصتك" — Arabic, gold gradient

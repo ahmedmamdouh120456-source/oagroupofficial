@@ -89,6 +89,15 @@ export function HomePage() {
     ? ["نصمّم", "نصوّر", "نسوّق", "نبرمج", "نبدع"]
     : ["Design", "Photograph", "Market", "Develop", "Create"];
 
+  const storyTickerItems = [
+    t("الاستراتيجية", "STRATEGY"),
+    t("الهوية", "BRANDING"),
+    t("المحتوى", "CONTENT"),
+    t("الإنتاج", "PRODUCTION"),
+    t("التكنولوجيا", "TECHNOLOGY"),
+    t("النمو", "GROWTH"),
+  ];
+
   return (
     <>
       {/* ═══ HERO ═══ */}
@@ -218,6 +227,89 @@ export function HomePage() {
             <div className="w-1 h-2 rounded-full bg-[#E8DFC0]/30" />
           </div>
         </motion.div>
+      </section>
+
+      {/* ═══ BRAND STORY — EDITORIAL STRIP ═══ */}
+      <section className="relative overflow-hidden bg-[#E8DFC0] text-[#1A0E1E]">
+        {/* Capabilities ticker */}
+        <div className="border-y border-[#1A0E1E]/35 py-3" dir="ltr">
+          <div className="flex w-max items-center" style={{ animation: "marquee 30s linear infinite" }}>
+            {[0, 1].map((set) => (
+              <div key={set} className="flex shrink-0 flex-nowrap items-center">
+                {[...storyTickerItems, ...storyTickerItems].map((item, index) => (
+                  <span
+                    key={`${set}-${index}-${item}`}
+                    className="flex shrink-0 items-center gap-5 whitespace-nowrap px-5 text-[0.68rem] font-bold tracking-[0.16em] text-[#1A0E1E]"
+                    style={{ fontFamily: lang === "ar" ? font : "'JetBrains Mono', monospace" }}
+                  >
+                    {item}
+                    <span className="text-[#6B4C8A]">✦</span>
+                  </span>
+                ))}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="mx-auto max-w-7xl px-6 py-20 md:py-28">
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.4 }}
+            transition={{ duration: 0.75 }}
+            className="ms-auto max-w-5xl text-right"
+            style={{
+              fontFamily: font,
+              fontWeight: 800,
+              fontSize: "clamp(1.3rem, 2.3vw, 2.25rem)",
+              lineHeight: lang === "ar" ? 1.55 : 1.2,
+              letterSpacing: lang === "ar" ? 0 : "-0.04em",
+            }}
+          >
+            <span className="block">
+              {t(
+                "في براندات بتتشاف",
+                "Some brands get seen",
+              )}
+            </span>
+            <span className="block text-[#6B4C8A]">
+              {t(
+                "وبراندات بتسيب أثر",
+                "Others leave a mark",
+              )}
+            </span>
+          </motion.h2>
+
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.65, delay: 0.15 }}
+            className="mt-14 grid gap-8 border-t border-[#1A0E1E]/25 pt-8 md:grid-cols-12 md:items-start"
+          >
+            <div className="md:col-span-3">
+              <p className="text-sm font-bold" style={{ fontFamily: font }}>
+                OAGROUP / {t("بصمتك", "YOUR IMPACT")}
+              </p>
+            </div>
+
+            <p className="max-w-2xl text-base leading-8 text-[#1A0E1E]/75 md:col-span-6" style={{ fontFamily: font }}>
+              {t(
+                "تواصل مع OA Group وخلّي لبراندك بصمة مختلفة",
+                "Talk to OA Group and give your brand an unmistakable signature",
+              )}
+            </p>
+
+            <Link
+              to="/contact"
+              className="group flex items-center justify-between border-b border-[#1A0E1E] pb-4 text-sm font-bold md:col-span-3"
+              style={{ fontFamily: font }}
+            >
+              {t("تواصل معنا", "Let's work together")}
+              <Arrow className="h-5 w-5 transition-transform group-hover:-translate-x-1 ltr:group-hover:translate-x-1" />
+            </Link>
+          </motion.div>
+        </div>
       </section>
 
       {/* ═══ VIDEO SHOWREEL SECTION ═══ */}
