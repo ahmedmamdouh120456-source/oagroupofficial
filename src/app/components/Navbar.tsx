@@ -70,12 +70,6 @@ export function Navbar() {
               >
                 OAGROUP
               </span>
-              <span
-                className="text-[#E8DFC0]/45 block text-[0.62rem]"
-                style={{ fontFamily: font, letterSpacing: lang === "ar" ? 0 : "0.12em" }}
-              >
-                {t("نصنع الفرق رقميًا", "Digital Marketing Agency")}
-              </span>
             </div>
           </Link>
 
@@ -112,7 +106,7 @@ export function Navbar() {
               className="group flex items-center gap-1.5 h-9 px-5 bg-[#E8DFC0] text-[#1A0E1E] rounded-full hover:bg-white transition-all text-sm shrink-0"
               style={{ fontFamily: font, fontWeight: 700 }}
             >
-              {t("ابدأ الآن", "Start Now")}
+              {t("خلّينا نسمعك", "Let’s Talk")}
               <ArrowUpRight className="w-4 h-4 transition-transform group-hover:-translate-y-0.5 rtl:-scale-x-100" />
             </Link>
           </div>
@@ -175,7 +169,7 @@ export function Navbar() {
               className="flex-1 flex items-center justify-center h-12 rounded-full bg-[#E8DFC0] text-[#1A0E1E] text-sm font-bold"
               style={{ fontFamily: font, fontWeight: 700 }}
             >
-              {t("ابدأ الآن", "Start Now")}
+              {t("خلّينا نسمعك", "Let’s Talk")}
             </Link>
           </div>
         </div>

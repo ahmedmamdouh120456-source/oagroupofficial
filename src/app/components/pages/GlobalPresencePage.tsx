@@ -2,8 +2,8 @@ import { motion } from "motion/react";
 import { Link } from "react-router";
 import { useLang } from "../LanguageContext";
 import { Globe2, ArrowUpRight, ChevronLeft, ChevronRight, Camera, Film, Sparkles, Wand2, Scissors, ExternalLink, MapPin } from "lucide-react";
-import siffahPreview from "../../../imports/image-4.png";
-import fxStudioLocation from "../../../imports/image-5.png";
+import siffahPreview from "../../../imports/image-4.optimized.webp";
+import fxStudioLocation from "../../../imports/image-5.optimized.webp";
 
 export function GlobalPresencePage() {
   const { t, lang } = useLang();
@@ -145,7 +145,7 @@ export function GlobalPresencePage() {
                 </div>
                 {/* Live website screenshot */}
                 <div className="relative">
-                  <img src={siffahPreview} alt={t("معاينة موقع Siffah", "Siffah website preview")} className="w-full block" />
+                  <img src={siffahPreview} alt={t("معاينة موقع Siffah", "Siffah website preview")} loading="lazy" decoding="async" className="w-full block" />
                   <div className="pointer-events-none absolute inset-0" style={{ background: "linear-gradient(to top, rgba(21,13,24,0.55), transparent 45%)" }} />
                   {/* Location pin */}
                   <div className="absolute bottom-4 start-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#120A14]/80 border border-[#C9A84C]/25 backdrop-blur-md">
@@ -180,7 +180,7 @@ export function GlobalPresencePage() {
               className="relative block group order-1 cursor-pointer">
               <div className="absolute -inset-4 bg-gradient-to-br from-[#A87FC4]/10 to-transparent blur-2xl rounded-3xl" />
               <div className="relative rounded-2xl overflow-hidden border border-[#A87FC4]/15 shadow-[0_30px_90px_rgba(0,0,0,0.6)] aspect-[4/5] md:aspect-[4/3] transition-all duration-500 group-hover:scale-[1.02] group-hover:border-[#A87FC4]/40">
-                <img src={fxStudioLocation} alt={t("استوديو FXSTUDIO", "FXSTUDIO location")} className="w-full h-full object-cover" />
+                <img src={fxStudioLocation} alt={t("استوديو FXSTUDIO", "FXSTUDIO location")} loading="lazy" decoding="async" className="w-full h-full object-cover" />
                 {/* Cinematic overlay */}
                 <div className="pointer-events-none absolute inset-0" style={{ background: "linear-gradient(to top, rgba(13,7,16,0.75) 0%, rgba(13,7,16,0.1) 40%, transparent 70%)" }} />
                 {/* Film grain corners */}

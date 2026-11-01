@@ -52,7 +52,7 @@ export function PartnersSection() {
               <div className="w-14 h-14 rounded-2xl flex items-center justify-center transition-transform duration-500 group-hover:scale-110 overflow-hidden"
                 style={{ background: `${p.color}14` }}>
                 {p.img ? (
-                  <img src={p.img} alt={`${p.name} logo`} className="w-10 h-10 object-contain" />
+                  <img src={p.img} alt={`${p.name} logo`} loading="lazy" decoding="async" className="w-10 h-10 object-contain" />
                 ) : (
                   <svg viewBox="0 0 24 24" className="w-8 h-8" fill={p.color}>
                     <path d={p.path} />

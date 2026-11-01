@@ -2,7 +2,7 @@ import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import { useLang } from "../LanguageContext";
 import logoImg from "../../../imports/540454450_122108095274987112_4613267991255325676_n.jpg";
-import img4 from "../../../imports/4.jpg";
+import img4 from "../../../imports/4.optimized.webp";
 import img23 from "../../../imports/23.jpg";
 import img5 from "../../../imports/5.jpg";
 import imgBliss from "../../../imports/20167976c21deaa876ca0488a6a9fafe.jpg";
@@ -98,21 +98,21 @@ export function AboutPage() {
                 <div className="space-y-4">
                   <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5 }}
                     className="rounded-2xl overflow-hidden border border-[#E8DFC0]/5">
-                    <img src={img4} alt="" className="w-full h-48 object-cover" />
+                    <img src={img4} alt="" loading="lazy" decoding="async" className="w-full h-48 object-cover" />
                   </motion.div>
                   <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7 }}
                     className="rounded-2xl overflow-hidden border border-[#E8DFC0]/5">
-                    <img src={img23} alt="" className="w-full h-64 object-cover" />
+                    <img src={img23} alt="" loading="lazy" decoding="async" className="w-full h-64 object-cover" />
                   </motion.div>
                 </div>
                 <div className="space-y-4 pt-8">
                   <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }}
                     className="rounded-2xl overflow-hidden border border-[#E8DFC0]/5">
-                    <img src={imgBliss} alt="" className="w-full h-64 object-cover" />
+                    <img src={imgBliss} alt="" loading="lazy" decoding="async" className="w-full h-64 object-cover" />
                   </motion.div>
                   <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8 }}
                     className="rounded-2xl overflow-hidden border border-[#E8DFC0]/5">
-                    <img src={img5} alt="" className="w-full h-48 object-cover" />
+                    <img src={img5} alt="" loading="lazy" decoding="async" className="w-full h-48 object-cover" />
                   </motion.div>
                 </div>
               </div>

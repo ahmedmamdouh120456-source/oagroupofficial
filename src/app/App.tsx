@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { RouterProvider } from "react-router";
 import { Toaster } from "sonner";
 import { router } from "./routes";
+import { WordmarkLoader } from "./components/WordmarkLoader";
 
 export default function App() {
   useEffect(() => {
@@ -10,6 +11,7 @@ export default function App() {
 
   return (
     <>
+      <WordmarkLoader />
       <Toaster position="top-center" theme="dark" />
       <RouterProvider router={router} />
     </>

@@ -7,17 +7,17 @@ import { useState } from "react";
 import img1 from "../../../imports/1.jpg";
 import img2 from "../../../imports/2.jpg";
 import img3 from "../../../imports/3.jpg";
-import img4 from "../../../imports/4.jpg";
+import img4 from "../../../imports/4.optimized.webp";
 import img5 from "../../../imports/5.jpg";
-import img13 from "../../../imports/13.jpg";
+import img13 from "../../../imports/13.optimized.webp";
 import img23 from "../../../imports/23.jpg";
-import img27 from "../../../imports/27.jpg";
-import img29 from "../../../imports/29.jpg";
+import img27 from "../../../imports/27.optimized.webp";
+import img29 from "../../../imports/29.optimized.webp";
 import imgBliss from "../../../imports/20167976c21deaa876ca0488a6a9fafe.jpg";
-import imgG3a1 from "../../../imports/6.jpg";
-import imgG3a2 from "../../../imports/1-1.png";
-import imgG3a3 from "../../../imports/2-2.jpg";
-import imgMishkah from "../../../imports/your_knowledge_path.jpg";
+import imgG3a1 from "../../../imports/6.optimized.webp";
+import imgG3a2 from "../../../imports/1-1.optimized.webp";
+import imgG3a3 from "../../../imports/2-2.optimized.webp";
+import imgMishkah from "../../../imports/your_knowledge_path.optimized.webp";
 
 const projects = [
   { img: imgMishkah, title: { ar: "مشكاة — طريق المعرفة", en: "Mishkah — Knowledge Path" }, cat: { ar: "جرافيك", en: "Graphic" }, desc: { ar: "تصميم إبداعي مفاهيمي لجامعة مشكاة — رحلتك التعليمية تبدأ من هنا", en: "Conceptual creative design for Mishkah University — your knowledge path starts here" }, color: "#1E5E4E" },
@@ -101,7 +101,7 @@ export function WorksPage() {
                   onClick={() => setLightbox(i)}>
                   {/* Image */}
                   <div className="relative overflow-hidden">
-                    <img src={p.img} alt={lang === "ar" ? p.title.ar : p.title.en}
+                    <img src={p.img} alt={lang === "ar" ? p.title.ar : p.title.en} loading="lazy" decoding="async"
                       className="w-full object-cover group-hover:scale-105 transition-transform duration-700" />
                     {/* Overlay on hover */}
                     <div className="absolute inset-0 bg-gradient-to-t from-[#1A0E1E] via-[#1A0E1E]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-5">

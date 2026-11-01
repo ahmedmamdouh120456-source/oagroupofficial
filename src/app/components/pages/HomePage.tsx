@@ -3,7 +3,7 @@ import { Link } from "react-router";
 import { ChevronLeft, ChevronRight, Play, Sparkles, Zap, Target, MessageCircle, Camera, Palette as PaletteIcon, Code, TrendingUp, ExternalLink, Video } from "lucide-react";
 import { useLang } from "../LanguageContext";
 import { PartnersSection } from "../PartnersSection";
-import characterImg from "../../../imports/2-1.jpg";
+import characterImg from "../../../imports/2-1.optimized.webp";
 import mishkahLogo from "../../../imports/w-mishkah.png";
 import ejazaLogo from "../../../imports/w-ejaza.png";
 import g3aLogo from "../../../imports/w-g3a.png";
@@ -202,10 +202,8 @@ export function HomePage() {
           <motion.div initial={{ opacity: 0, scale: 0.85, rotate: 2 }} animate={{ opacity: 1, scale: 1, rotate: 0 }} transition={{ duration: 1.2, delay: 0.5 }}
             className="relative flex justify-center w-full max-w-sm sm:max-w-md md:max-w-none mx-auto mt-4 md:mt-0">
             <div className="absolute inset-0 rounded-[3rem] scale-90" style={{ background: "radial-gradient(circle, rgba(107,76,138,0.28), transparent 70%)" }} />
-            {/* Decorative ring */}
             <div className="absolute -inset-3 md:-inset-4 rounded-[3rem] border border-dashed border-[#6B4C8A]/15" />
-            <img src={characterImg} alt="OA Group" className="relative z-10 w-full max-w-lg rounded-3xl border border-[#E8DFC0]/15 ring-1 ring-[#C9A84C]/15 shadow-[0_30px_90px_rgba(0,0,0,0.55)]" />
-            {/* Floating badges — very subtle float (~3%) */}
+            <img src={characterImg} alt="OA Group" fetchPriority="high" decoding="async" className="relative z-10 w-full max-w-lg rounded-3xl border border-[#E8DFC0]/15 ring-1 ring-[#C9A84C]/15 shadow-[0_30px_90px_rgba(0,0,0,0.55)]" />
             <motion.div animate={{ y: [0, -4, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
               className="absolute top-6 md:top-8 start-1 md:-start-6 z-20 px-3 md:px-4 py-1.5 md:py-2 rounded-xl bg-[#1A0E1E] border border-[#E8DFC0]/10 flex items-center gap-2">
               <Sparkles className="w-4 h-4 text-[#C9A84C]" />
@@ -443,7 +441,7 @@ export function HomePage() {
                   { name: t("G3A — عبد الله قدري", "G3A — Abdullah Kadry"), logo: g3aLogo },
                 ].map((c, i) => (
                   <div key={`${set}-${i}`} title={c.name} className={`flex-shrink-0 h-20 w-40 flex items-center justify-center ${c.logo === ejazaLogo ? "ms-24" : "ms-14"}`}>
-                    <img src={c.logo} alt={c.name}
+                    <img src={c.logo} alt={c.name} loading="lazy" decoding="async"
                       className={`w-auto object-contain opacity-70 hover:opacity-100 transition-opacity duration-300 ${c.logo === morshedLogo ? "max-h-[72px] max-w-[190px] translate-y-2" : c.logo === g3aLogo ? "max-h-[68px] max-w-[180px]" : "max-h-14 max-w-[150px]"}`} />
                   </div>
                 ))
